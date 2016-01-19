@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="5">
+
+  <testsuite name="logIn"
+    errors="0" failures="0" hostname="" id="" package="pages" skipped="0"
+    tests="5" time="67.51" timestamp="Wed, 13 Jan 2016 19:21:54 GMT">
+  
+    <testcase name="Verify login page elements present" time="4.333" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Verify user can log in with valid credentials" time="12.58" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Verify error is thrown with invalid credentials" time="7.657" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Verify lockout is reset after successful login" time="24.41" assertions="9">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Verify user is locked out after 5 failed attempts" time="18.54" assertions="8">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>
