@@ -27,7 +27,6 @@ module.exports = {
         .end();
     },
 
-
     'Verify error is thrown for in-use email': function(browser) {
         browser
         .setValue(selectors.signUpFirstName, 'Automation')

@@ -10,7 +10,6 @@ module.exports = {
     },
 
     'Verify page elements present': function(browser) {
-
     	browser
     	.verify.elementsPresent(
     		//global

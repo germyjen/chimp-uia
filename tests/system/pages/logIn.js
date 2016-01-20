@@ -27,7 +27,7 @@ module.exports = {
     'Verify user can log in with valid credentials': function(browser) {
     	browser
         .waitForElementVisible(selectors.logInSubmit)
-        .setValue(selectors.logInUsername, 'jennifer.germyn+tests@chimp.net')
+        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
         .setValue(selectors.logInPassword, 'Qwerty1234!')
         //let setValue finish adding text:
         .pause(1000)
@@ -42,7 +42,7 @@ module.exports = {
     'Verify error is thrown with invalid credentials': function(browser) {
     	browser
         .waitForElementVisible(selectors.logInSubmit)
-        .setValue(selectors.logInUsername, 'jennifer.germyn+tests@chimp.net')
+        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
         .setValue(selectors.logInPassword, 'notrealpassword')
         .pause(1000)
         .click(selectors.logInSubmit)
@@ -58,7 +58,7 @@ module.exports = {
 		browser
         .waitForElementVisible(selectors.logInSubmit)
         //first failed attempt
-        .setValue(selectors.logInUsername, 'jennifer.germyn+tests@chimp.net')
+        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
         .setValue(selectors.logInPassword, 'notrealpassword')
         .pause(1000)
         .click(selectors.logInSubmit)
@@ -105,7 +105,7 @@ module.exports = {
         browser
         .waitForElementVisible(selectors.logInSubmit)
         //first failed attempt
-        .setValue(selectors.logInUsername, 'jennifer.germyn+locked@chimp.net')
+        .setValue(selectors.logInUsername, 'chimpautomation+locked@gmail.com')
         .setValue(selectors.logInPassword, 'notrealpassword')
         .pause(1000)
         .click(selectors.logInSubmit)
