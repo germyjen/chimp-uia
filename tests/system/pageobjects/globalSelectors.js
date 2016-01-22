@@ -2,7 +2,27 @@ module.exports = {
 
     //Global Header
     header: '.c-header',
+    headerLogo: '.c-header__logo',
+        //refactor for nth child**
+    headerFeatures: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(1) > span',
+    headerFeaturesOpen: 'li.c-nav-menu__item.c-nav-items-dropdown.c--open > div',
+    headerSolutions: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(2) > span',
+    headerAbout: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(3) > span',
+    headerSupport: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(4) > span',
+        headerSolution1: '.c-nav-items-dropdown.c--open > div > div.pure-g.pure-g--gutters > div:nth-child(1) > div > a',
+        headerSolution2: '.c-nav-items-dropdown.c--open > div > div.pure-g.pure-g--gutters > div:nth-child(2) > div > a',
+        headerSolution3: '.c-nav-items-dropdown.c--open > div > div.pure-g.pure-g--gutters > div:nth-child(3) > div > a',
+        headerSolution4: '.c-nav-items-dropdown.c--open > div > div.pure-g.pure-g--gutters > div:nth-child(4) > div > a',
+            headerSecondary1: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(1) > a',
+            headerSecondary2: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(2) > a',
+            headerSecondary3: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(3) > a',
+            headerSecondary4: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(4) > a',
+            headerSecondary5: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(5) > a',
+            headerSecondary6: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(6) > a',
+    headerSearch: 'div.c-header__button-wrapper > div > button > svg',
     logInHeaderButton: '.c-button.c--pop.c--light.u-margin-end-md',
+    signUpHeaderButton: 'div.c-header__button-wrapper > a.c-button.c--pop.c--filled-inverted',
+    
     //Old header
     oldHeader: '.site-header',
     oldHeaderLogin: '#header-dropdown-btn',

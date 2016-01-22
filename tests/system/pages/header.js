@@ -117,7 +117,7 @@ module.exports = {
         .end();
     },
 
-'Verify Search is dismissed by close button': function(browser) {
+    'Verify Search can be dismissed by close button': function(browser) {
         browser
         .triggerTouch(selectors.headerSearch)
         .waitForAnimation()
@@ -125,6 +125,14 @@ module.exports = {
             '#header-search')
         .triggerTouch('.c-modal__close')
         .end();
-    }
+    },
 
+    'Verify login button navigates to Log In page': function(browser) {
+        browser
+        .assert.attributeContains(selectors.logInHeaderButton, "href", "login")
+        .triggerTouch(selectors.logInHeaderButton)
+        .waitForElementVisible(selectors.headerLogo)
+        .assert.urlEquals('https://chimp.net/login')
+        .end();
+    }
 }
