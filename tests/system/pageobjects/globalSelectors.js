@@ -19,7 +19,14 @@ module.exports = {
             headerSecondary4: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(4) > a',
             headerSecondary5: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(5) > a',
             headerSecondary6: '.c-nav-items-dropdown.c--open > div > ul > li:nth-child(6) > a',
+
     headerSearch: 'div.c-header__button-wrapper > div > button > svg',
+    headerSearchInput: '#header-search',
+    headerSearchClose: '.c-modal__close',
+    headerSearchResults:'.c-header-search-results',
+    headerSearchResultsAv: 'li:nth-child(1) > a > svg > use',
+    headerSearchResultsName: 'div.c-list-preview__list-item-name',
+    headerSearchResultsArrow: 'div.c-list-preview__list-item-icon-end > svg',
     logInHeaderButton: '.c-button.c--pop.c--light.u-margin-end-md',
     signUpHeaderButton: 'div.c-header__button-wrapper > a.c-button.c--pop.c--filled-inverted',
     

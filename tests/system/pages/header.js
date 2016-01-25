@@ -94,8 +94,8 @@ module.exports = {
         .triggerTouch(selectors.headerSearch)
         .waitForAnimation()
         .verify.elementsVisible(
-            '#header-search',
-            '.c-modal__close',
+            selectors.headerSearchInput,
+            selectors.headerSearchClose,
             selectors.headerSearch)
         .end();
     },
@@ -104,16 +104,16 @@ module.exports = {
         browser
         .triggerTouch(selectors.headerSearch)
         .waitForAnimation()
-        .setValue('#header-search', 'Red Cross')
+        .setValue(selectors.headerSearchInput, 'Red Cross')
         .waitForAnimation()
         .verify.elementsVisible(
-            '.c-modal__close',
+            selectors.headerSearchClose,
             selectors.headerSearch,
-            '.c-header-search-results')
+            selectors.headerSearchResults)
         .verify.elementsPresent(
-            'li:nth-child(1) > a > svg > use',
-            'div.c-list-preview__list-item-name',
-            'div.c-list-preview__list-item-icon-end > svg')
+            selectors.headerSearchResultsAv,
+            selectors.headerSearchResultsName,
+            selectors.headerSearchResultsArrow)
         .end();
     },
 
@@ -122,8 +122,8 @@ module.exports = {
         .triggerTouch(selectors.headerSearch)
         .waitForAnimation()
         .verify.elementsVisible(
-            '#header-search')
-        .triggerTouch('.c-modal__close')
+            selectors.headerSearchInput)
+        .triggerTouch(selectors.headerSearchClose)
         .end();
     },
 
@@ -131,8 +131,17 @@ module.exports = {
         browser
         .assert.attributeContains(selectors.logInHeaderButton, "href", "login")
         .triggerTouch(selectors.logInHeaderButton)
-        .waitForElementVisible(selectors.headerLogo)
+        .waitForElementVisible('.login_form')
         .assert.urlEquals('https://chimp.net/login')
+        .end();
+    },
+
+        'Verify sign up button navigates to sign up page': function(browser) {
+        browser
+        .assert.attributeContains(selectors.signUpHeaderButton, "href", "new")
+        .triggerTouch(selectors.signUpHeaderButton)
+        .waitForElementVisible('.new_user')
+        .assert.urlEquals('https://chimp.net/users/new')
         .end();
     }
 }
