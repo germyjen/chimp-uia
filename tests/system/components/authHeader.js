@@ -5,10 +5,17 @@ var selectors = require('../../../tests/system/pageobjects/globalSelectors');
 
 module.exports = {
 
-    'setUp': function(browser) {
+       'setUp': function(browser) {
         browser
         .url('http://www.chimp.net/')
-        .waitForElementVisible(selectors.headerLogo)
+        .waitForElementVisible(selectors.logInHeaderButton)
+        .click(selectors.logInHeaderButton)
+        .waitForElementVisible(selectors.logInSubmit)
+        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
+        .setValue(selectors.logInPassword, 'Qwerty1234!')
+        .pause(1000)
+        .click(selectors.logInSubmit)
+        .waitForElementVisible(selectors.accountNav)
     },
 
     'Verify header elements present': function(browser) {
@@ -16,13 +23,8 @@ module.exports = {
     	.verify.elementsPresent(
     		selectors.header,
             selectors.headerLogo,
-            selectors.headerFeatures,
-            selectors.headerSolutions,
-            selectors.headerAbout,
-            selectors.headerSupport,
             selectors.headerSearch,
-            selectors.logInHeaderButton,
-            selectors.signUpHeaderButton)
+            selectors.headerMegaBtn)
         .end();
     }
 }
