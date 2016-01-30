@@ -29,6 +29,11 @@ module.exports = {
     headerSearchResultsArrow: 'div.c-list-preview__list-item-icon-end > svg',
     logInHeaderButton: '.c-button.c--pop.c--light.u-margin-end-md',
     signUpHeaderButton: 'div.c-header__button-wrapper > a.c-button.c--pop.c--filled-inverted',
+
+    //Authenticated Header
+    headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
+    headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
+    headerProfileBtn: 'div.c-header-account-dropdown__trigger.p-dropdown__item-trigger > div > img',
     
     //Old header
     oldHeader: '.site-header',
