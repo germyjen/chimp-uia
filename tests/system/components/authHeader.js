@@ -105,5 +105,30 @@ module.exports = {
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(1) > a', "href", "contact")
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > a', "href", "help")
         .end();
+    },
+
+    // === Give Menu Tests Start
+
+    'Verify that Give Menu has all the components': function(browser) {
+        browser
+        .click(selectors.headerGiveMenuBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(
+            '.c-header-give-dropdown__content')
+        .assert.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
+
+        .assert.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
+        .assert.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
+        .assert.containsText(selectors.headerGiveMenuAddButton, "Add")
+
+        .assert.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
+        .assert.containsText(selectors.headerGiveMenuGiveButton, 'Give')
+        .assert.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
+
+        .assert.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
+        .assert.containsText(selectors.headerGiveMenuSendButton, 'Send')
+        .assert.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
+        .end();
     }
+    //  === Give Meny Tests Finish
 }

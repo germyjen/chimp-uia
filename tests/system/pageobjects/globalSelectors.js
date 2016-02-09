@@ -34,7 +34,18 @@ module.exports = {
     headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
     headerProfileBtn: 'div.c-header-account-dropdown__trigger.p-dropdown__item-trigger > div > img',
-    
+ 
+    //Give Menu
+    headerGiveMenuBtn: 'div.c-header-give-dropdown > div.p-dropdown__item-trigger > button',
+    headerGiveMenuFirstHeading: 'h2.c-header-give-contents__heading',
+    headerGiveMenuAddHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > h3',
+    headerGiveMenuAddButton: '.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__action > a',
+    headerGiveMenuGiveHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__description > h3',
+    headerGiveMenuGiveButton: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__action > a',
+    headerGiveMenuSendHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--send > div.c-give-cta__description > h3',
+    headerGiveMenuSendButton: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--send > div.c-give-cta__action > a',
+
+
     //Old header
     oldHeader: '.site-header',
     oldHeaderLogin: '#header-dropdown-btn',
