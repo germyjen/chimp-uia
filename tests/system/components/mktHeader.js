@@ -113,7 +113,6 @@ module.exports = {
             selectors.headerSearch,
             selectors.headerSearchResults)
         .verify.elementsPresent(
-            selectors.headerSearchResultsAv,
             selectors.headerSearchResultsName,
             selectors.headerSearchResultsArrow)
         .end();
