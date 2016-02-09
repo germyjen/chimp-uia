@@ -106,5 +106,46 @@ module.exports = {
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(1) > a', "href", "contact")
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > a', "href", "help")
         .end();
-    }
+    },
+
+    'Verify Account Menu can toggle open and closed': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .click(selectors.headerProfileBtn)
+        .end();
+    },
+
+    'Verify Account Menu contains expected elements': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(
+            selectors.accountNavGreeting,
+            selectors.accountNavBalance,
+            selectors.accountNavAmount,
+            selectors.accountNavAddMoney,
+            selectors.accountNavSettingsContent)
+        .end();
+    },
+
+    'Verify Account Menu Settings Menu navigation': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .assert.containsText(selectors.accountNavSettings, 'Settings')
+        .assert.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
+        .assert.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .assert.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
+        .assert.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .assert.containsText(selectors.accountNavGivingTools, 'Giving Tools')
+        .assert.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .assert.containsText(selectors.accountNavLogout, 'Logout')
+        .assert.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .end();
+    },
+    
 }

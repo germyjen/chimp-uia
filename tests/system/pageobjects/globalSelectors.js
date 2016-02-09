@@ -31,10 +31,23 @@ module.exports = {
 
 
     //Authenticated Header
+    //Account Nav
     accountNav: '.c-header-account-dropdown__trigger-avatar',
+    accountNavBody: '.c-header-account-nav',
+    accountNavGreeting: '.c-header-account-nav__greeting',
+    accountNavBalance: '.c-user-balance-summary',
+    accountNavAmount: '.c-user-balance-summary__amount',
+    accountNavAddMoney: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.c-user-balance-summary > a',
+    accountNavSettingsContent: '.c-header-account-nav__content-area',
+    accountNavSettings: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > h3',
+    accountNavAccSettingsLink: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(1) > a',
+    accountNavTaxReceipts: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(2) > a',
+    accountNavGivingTools: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(3) > a',
+    accountNavLogout: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(4) > a',
+
     headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
-    headerProfileBtn: 'body > div.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > button',
+    headerProfileBtn: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > button',
 
     //Global Footer
     preFooter: '.c-prefooter',
