@@ -5,27 +5,23 @@ module.exports = {
 
     'setUp': function(browser) {
         browser
-        .url('http://www.chimp.net/users/new')
-        .waitForElementVisible(selectors.oldHeader)
+        .url(browser.launch_url + 'users/new')
+        .waitForElementVisible(selectors.headerLogo)
     },
 
     'Verify sign up page elements present': function(browser) {
     	browser
-        .verify.elementsPresent(
-        	selectors.oldHeaderLogin,
-            selectors.oldHeaderSignup,
-            selectors.signUpFirstName,
-            selectors.signUpLastName,
-            selectors.signUpEmail,
-            selectors.signUpPassword,
-            selectors.signUpCountry,
-            selectors.sighUpAgreement,
-            selectors.signUpTerms,
-            selectors.signUpPrivacy,
-            selectors.signUpSubmit,
-            selectors.subFooter)
+    .verify.elementsPresent(
+            selectors.header,
+            selectors.headerLogo,
+            selectors.headerFeatures,
+            selectors.headerSolutions,
+            selectors.headerAbout,
+            selectors.headerSupport,
+            selectors.headerSearch,
+            selectors.logInHeaderButton,
+            selectors.signUpHeaderButton)
         .end();
-    },
 
     'Verify error is thrown for in-use email': function(browser) {
         browser

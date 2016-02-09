@@ -7,7 +7,8 @@ module.exports = {
 
        'setUp': function(browser) {
         browser
-        .url('https://local.chimp.net:3000/login')
+        //login to Chimp
+        .url(browser.launch_url + 'login')
         .waitForElementVisible(selectors.logInSubmit)
         .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
         .setValue(selectors.logInPassword, 'Qwerty1234!')

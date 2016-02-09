@@ -7,7 +7,7 @@ module.exports = {
 
     'setUp': function(browser) {
         browser
-        .url('http://www.chimp.net/')
+        .url(browser.launch_url)
         .waitForElementVisible(selectors.headerLogo)
     },
 
@@ -134,7 +134,7 @@ module.exports = {
         .assert.attributeContains(selectors.logInHeaderButton, "href", "login")
         .triggerTouch(selectors.logInHeaderButton)
         .waitForElementVisible('.login_form')
-        .assert.urlEquals('https://chimp.net/login')
+        .assert.urlEquals(browser.launch_url + 'login')
         .end();
     },
 
@@ -143,7 +143,7 @@ module.exports = {
         .assert.attributeContains(selectors.signUpHeaderButton, "href", "new")
         .triggerTouch(selectors.signUpHeaderButton)
         .waitForElementVisible('.new_user')
-        .assert.urlEquals('https://chimp.net/users/new')
+        .assert.urlEquals(browser.launch_url + 'users/new')
         .end();
     }
 }

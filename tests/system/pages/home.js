@@ -5,7 +5,7 @@ module.exports = {
 
     'setUp': function(browser) {
         browser
-        .url('http://www.chimp.net/')
+        .init(browser.launch_url)
         .waitForElementVisible(selectors.logInHeaderButton)
     },
 

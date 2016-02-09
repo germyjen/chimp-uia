@@ -5,22 +5,20 @@ module.exports = {
 
     'setUp': function(browser) {
         browser
-        .url('http://www.chimp.net/login')
-        .waitForElementVisible(selectors.oldHeader)
+        .url(browser.launch_url + 'login')
+        .waitForElementVisible(selectors.headerLogo)
     },
 
         'Verify login page elements present': function(browser) {
     	browser
         .verify.elementsPresent(
-        	selectors.oldHeaderLogin,
-            selectors.oldHeaderSignup,
-            selectors.logInUsername,
-            selectors.logInPassword,
-            selectors.logInForgot,
-            selectors.logInSubmit,
-            selectors.logInSidebar,
-            selectors.logInSidebarBtn,
-            selectors.subFooter)
+            selectors.header,
+            selectors.headerLogo,
+            selectors.headerFeatures,
+            selectors.headerSolutions,
+            selectors.headerAbout,
+            selectors.headerSupport,
+            selectors.headerSearch)
         .end();
     },
 
@@ -35,7 +33,7 @@ module.exports = {
         .waitForElementVisible(selectors.accountNav)
         .click(selectors.accountNav)
         .waitForAnimation()
-        .click(selectors.accountNavLogout)
+        .url(browser.launch_url + 'logout')
         .end();
     },
 
@@ -79,10 +77,8 @@ module.exports = {
         .click(selectors.logInSubmit)
         .waitForElementVisible(selectors.accountNav)
         //log out
-        .click(selectors.accountNav)
-        .waitForAnimation()
-        .click(selectors.accountNavLogout)
-        .url('http://www.chimp.net/login')
+        .url(browser.launch_url + 'logout')
+        .url(browser.launch_url + 'login')
         .waitForElementVisible(selectors.logInSubmit)
         //fourth failed attempt
         .setValue(selectors.logInPassword, 'notrealpassword')
