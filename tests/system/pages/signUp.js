@@ -6,22 +6,22 @@ module.exports = {
     'setUp': function(browser) {
         browser
         .url(browser.launch_url + 'users/new')
-        .waitForElementVisible(selectors.headerLogo)
+        .waitForElementVisible(selectors.headerLogo);
     },
 
     'Verify sign up page elements present': function(browser) {
     	browser
-    .verify.elementsPresent(
+        .verify.elementsPresent(
             selectors.header,
             selectors.headerLogo,
             selectors.headerFeatures,
             selectors.headerSolutions,
             selectors.headerAbout,
             selectors.headerSupport,
-            selectors.headerSearch,
-            selectors.logInHeaderButton,
-            selectors.signUpHeaderButton)
+            selectors.headerSearch)
         .end();
+
+    },
 
     'Verify error is thrown for in-use email': function(browser) {
         browser
@@ -32,6 +32,7 @@ module.exports = {
         .click(selectors.signUpSubmit)
         .pause(3000)
         .verify.elementPresent(selectors.signUpEmailError)
+        .assert.containsText(selectors.signUpEmailError, '- has already been taken')
         .end();
     },
 
@@ -44,6 +45,7 @@ module.exports = {
         .click(selectors.signUpSubmit)
         .pause(3000)
         .verify.elementPresent(selectors.signUpPasswordError)
+        .assert.containsText(selectors.signUpPasswordError, '- Please provide a password that is at least 8 characters')
         .end();
     }
 };

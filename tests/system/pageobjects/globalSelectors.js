@@ -3,7 +3,9 @@ module.exports = {
     //Global Header
     header: '.c-header',
     headerLogo: '.c-header__logo',
-        //refactor for nth child**
+        
+
+    //Marketing Header
     headerFeatures: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(1) > span',
     headerFeaturesOpen: '.c-header-dropdown-item__contents.p-dropdown__item-contents.p--open.p--md',
     headerSolutions: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(2) > span',
@@ -19,7 +21,6 @@ module.exports = {
             headerSecondary4: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open > div > ul > li:nth-child(4) > a',
             headerSecondary5: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open > div > ul > li:nth-child(5) > a',
             headerSecondary6: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open > div > ul > li:nth-child(6) > a',
-
     headerSearch: 'div.c-header__button-wrapper > div > button > svg',
     headerSearchInput: '#header-search',
     headerSearchClose: '.c-header-modal__close',
@@ -33,18 +34,17 @@ module.exports = {
     //Authenticated Header
     //Account Nav
     accountNav: '.c-header-account-dropdown__trigger-avatar',
-    accountNavBody: '.c-header-account-nav',
+        accountNavBody: '.c-header-account-nav',
     accountNavGreeting: '.c-header-account-nav__greeting',
     accountNavBalance: '.c-user-balance-summary',
-    accountNavAmount: '.c-user-balance-summary__amount',
+        accountNavAmount: '.c-user-balance-summary__amount',
     accountNavAddMoney: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.c-user-balance-summary > a',
-    accountNavSettingsContent: '.c-header-account-nav__content-area',
     accountNavSettings: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > h3',
-    accountNavAccSettingsLink: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(1) > a',
-    accountNavTaxReceipts: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(2) > a',
-    accountNavGivingTools: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(3) > a',
-    accountNavLogout: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(4) > a',
-
+        accountNavSettingsContent: '.c-header-account-nav__content-area',
+        accountNavAccSettingsLink: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(1) > a',
+        accountNavTaxReceipts: '.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(2) > a',
+        accountNavGivingTools: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(3) > a',
+        accountNavLogout: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > div > div > div.pure-g.c-header-account-nav__content-area > div.pure-u-3-8 > ul > li:nth-child(4) > a',
     headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
     headerProfileBtn: '.header-wrapper > div > header > div > div.c-header__button-wrapper > div.p-dropdown > div > button',
@@ -90,7 +90,7 @@ module.exports = {
     signUpFirstName: '#user_first_name',
     signUpLastName: '#user_last_name',
     signUpEmail: '#user_email',
-    signUpEmailError: 'div.form-row:nth-child(3) > div:nth-child(3)',
+    signUpEmailError: '#new_user > div.form-wrapper > div.form-row.form-alert.error > div',
     signUpPassword: '#user_password',
     signUpPasswordError: 'div.form-row:nth-child(4) > div:nth-child(3)',
     signUpCountry: '#country',
