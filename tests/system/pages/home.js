@@ -29,7 +29,7 @@ module.exports = {
     		selectors.blockGrid,
     		selectors.blockGridTitle,
     		selectors.blockGridSubtitle,
-    		selectors.blockGridBtn,
+    		// selectors.blockGridBtn,
     		selectors.highlights,
     		selectors.highlightsTitle,
     		selectors.highlightsBody,

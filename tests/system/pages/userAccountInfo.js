@@ -6,9 +6,7 @@ module.exports = {
 	//I've moved it to set up so I don't have to duplicate the code
     'setUp': function(browser) {
         browser
-        .url(browser.launch_url)
-        .waitForElementVisible(selectors.logInHeaderButton)
-        .click(selectors.logInHeaderButton)
+        .url(browser.launch_url + 'login')
         .waitForElementVisible(selectors.logInSubmit)
         .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
         .setValue(selectors.logInPassword, 'Qwerty1234!')
