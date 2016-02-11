@@ -3,7 +3,6 @@ module.exports = {
     //Global Header
     header: '.c-header',
     headerLogo: '.c-header__logo',
-        
 
     //Marketing Header
     headerFeatures: 'div.c-header__nav-wrapper > nav > ul > li:nth-child(1) > span',
@@ -27,9 +26,8 @@ module.exports = {
     headerSearchResults:'.c-search-modal__results',
     headerSearchResultsName: 'div.c-list-preview__list-item-name',
     headerSearchResultsArrow: 'div.c-list-preview__list-item-icon-end > svg',
-    logInHeaderButton: 'div.bonobo.header > header > div > div.c-header__button-wrapper > a.c-button.c--pop.u-margin-end-md.c--light',
-    signUpHeaderButton: 'div.bonobo.header > header > div > div.c-header__button-wrapper > a.c-button.c--pop.c--filled-inverted',
-
+    logInHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/login"]',
+    signUpHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/users/new"]',
 
     //Authenticated Header
     //Account Nav
