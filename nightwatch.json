@@ -11,7 +11,7 @@
     "server_path" : "./bin/selenium-server-standalone-2.48.2.jar",
     "log_path" : "",
     "host" : "127.0.0.1",
-    "port" : 4444,
+    "port" : 4442,
     "cli_args": {
           "webdriver.chrome.driver": "./node_modules/nightwatch-commands/selenium/drivers/chromedriver"
         }
@@ -22,8 +22,8 @@
       "globals" : {
                 "waitForConditionTimeout" : 60000
             },
-      "launch_url" : "http://localhost",
-      "selenium_port"  : 4444,
+      "launch_url" : "https://local.chimp.net:3000/",
+      "selenium_port"  : 4442,
       "selenium_host"  : "localhost",
       "silent": true,
       "screenshots" : {

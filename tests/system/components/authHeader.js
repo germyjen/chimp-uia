@@ -7,7 +7,8 @@ module.exports = {
 
        'setUp': function(browser) {
         browser
-        .url('https://local.chimp.net:3000/login')
+        //login to Chimp
+        .url(browser.launch_url + 'login')
         .waitForElementVisible(selectors.logInSubmit)
         .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
         .setValue(selectors.logInPassword, 'Qwerty1234!')
@@ -164,6 +165,47 @@ module.exports = {
         .assert.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
         .end();
 
-    }
+    },
+
     //  === Give Meny Tests Finish
+    'Verify Account Menu can toggle open and closed': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .click(selectors.headerProfileBtn)
+        .end();
+    },
+
+    'Verify Account Menu contains expected elements': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(
+            selectors.accountNavGreeting,
+            selectors.accountNavBalance,
+            selectors.accountNavAmount,
+            selectors.accountNavAddMoney,
+            selectors.accountNavSettingsContent)
+        .end();
+    },
+
+    'Verify Account Menu Settings Menu navigation': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .assert.containsText(selectors.accountNavSettings, 'Settings')
+        .assert.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
+        .assert.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .assert.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
+        .assert.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .assert.containsText(selectors.accountNavGivingTools, 'Giving Tools')
+        .assert.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .assert.containsText(selectors.accountNavLogout, 'Logout')
+        .assert.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .end();
+    }
+    
 }
