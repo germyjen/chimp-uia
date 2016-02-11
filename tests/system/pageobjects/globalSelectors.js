@@ -1,5 +1,4 @@
 module.exports = {
-
     //Global Header
     header: '.c-header',
     headerLogo: '.c-header__logo',
@@ -27,7 +26,7 @@ module.exports = {
     headerSearchResults:'.c-search-modal__results',
     headerSearchResultsName: 'div.c-list-preview__list-item-name',
     headerSearchResultsArrow: 'div.c-list-preview__list-item-icon-end > svg',
-    logInHeaderButton: 'div.bonobo.header > header > div > div.c-header__button-wrapper > a.c-button.c--pop.u-margin-end-md.c--light',
+    logInHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/users/new"]',
     signUpHeaderButton: 'div.bonobo.header > header > div > div.c-header__button-wrapper > a.c-button.c--pop.c--filled-inverted',
 
 
@@ -58,7 +57,7 @@ module.exports = {
     headerGiveMenuSendButton: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--send > div.c-give-cta__action > a',
 
     // Add Section of Give Menu
-    headerGiveMenuAddDropDownHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > div > div > span.c-collapsable-item__title.c-give-cta__expand-heading',
+    headerGiveMenuAddDropDownHeading: '.c-header__button-wrapper .c-header-give-dropdown .c-header-give-dropdown__content.p--open .c-give-cta:nth-of-type(1) .p-collapsible-item__heading',
     headerGiveMenuAddHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > h3',
     headerGiveMenuAddButton: '.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__action > a',
     headerGiveMenuAddDropDownText: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > div > div:nth-child(2) > div > div > div > p',
