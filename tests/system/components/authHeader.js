@@ -131,32 +131,39 @@ module.exports = {
         .end();
     },
 
-   'Verify that Whats This? links in Give Menu work': function(browser) {
-    browser
-    .click(selectors.headerGiveMenuBtn)
-    .waitForAnimation()
-    .verify.elementsVisible('.c-header-give-dropdown__content')
+       'Verify that Whats This? links in Give Menu work': function(browser) {
+        browser
+        .click(selectors.headerGiveMenuBtn)
+        .waitForAnimation()
+        .verify.elementsVisible('.c-header-give-dropdown__content')
 
-    // Whats This? in Add Section
+        // Whats This? in Add Section
+        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
+        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .waitForAnimation()
+        .assert.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
+       
+         // Whats This? in Give Section
+        .click(selectors.headerGiveMenuGiveDropDownHeading)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
+        .assert.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
+        .click(selectors.headerGiveMenuGiveDropDownHeading)
+        .waitForAnimation()
+        .assert.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
 
-    .click('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > div > div > span.c-collapsable-item__title.c-give-cta__expand-heading')
-    .waitForAnimation()
-    .verify.elementsVisible('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > div > div:nth-child(2) > div > div > div > p')
-    .click('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > div > div > span.c-collapsable-item__title.c-give-cta__expand-heading')
-    .waitForAnimation()
-    .assert.elementNotPresent('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div:nth-child(2) > div.c-give-cta__description > div > div:nth-child(2) > div > div > div > p')
-   
-     // Whats This? in Give Section
 
-    .click('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__description > div > div > span.c-collapsable-item__title.c-give-cta__expand-heading')
-    .waitForAnimation()
-    .verify.elementsVisible('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__description > div > div:nth-child(2) > div > div > div > p')
-    .click('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__description > div > div > span.c-collapsable-item__title.c-give-cta__expand-heading')
-    .waitForAnimation()
-    .assert.elementNotPresent('.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__description > div > div:nth-child(2) > div > div > div > p')
+         // Whats This? In Send Section
+        .click(selectors.headerGiveMenuSendDropDownHeading)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
+        .click(selectors.headerGiveMenuSendDropDownHeading)
+        .waitForAnimation()
+        .assert.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
+        .end();
 
-     // Whats This? In Send Section
-    .end();
-}
+    }
     //  === Give Meny Tests Finish
 }
