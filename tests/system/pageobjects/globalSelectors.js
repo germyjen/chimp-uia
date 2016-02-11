@@ -20,7 +20,7 @@ module.exports = {
             headerSecondary4: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open > div > ul > li:nth-child(4) > a',
             headerSecondary5: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open > div > ul > li:nth-child(5) > a',
             headerSecondary6: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open > div > ul > li:nth-child(6) > a',
-    headerSearch: 'div.c-header__button-wrapper > div > button > svg',
+    headerSearch: '.c-header__button-wrapper .c-header__search-button',
     headerSearchInput: '#header-search',
     headerSearchClose: '.c-header-modal__close',
     headerSearchResults:'.c-search-modal__results',
