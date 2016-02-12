@@ -5,11 +5,11 @@ module.exports = {
     headerLogo: '.c-header__logo',
 
     //Marketing Header
-    headerFeatures: '.c-header__nav-wrapper > nav > ul > li:nth-child(1) > span',
-    headerFeaturesOpen: '.c-header-dropdown-item__contents.p-dropdown__item-contents.p--open.p--md',
-    headerSolutions: '.c-header__nav-wrapper > nav > ul > li:nth-child(2) > span',
-    headerAbout: '.c-header__nav-wrapper > nav > ul > li:nth-child(3) > span',
-    headerSupport: '.c-header__nav-wrapper > nav > ul > li:nth-child(4) > span',
+    headerFeatures: '.c-header__nav-wrapper li:nth-child(1) > span',
+    headerFeaturesOpen: '.c-header-dropdown-item__contents.p-dropdown__item-contents.p--open',
+    headerSolutions: '.c-header__nav-wrapper li:nth-child(2) > span',
+    headerAbout: '.c-header__nav-wrapper li:nth-child(3) > span',
+    headerSupport: '.c-header__nav-wrapper li:nth-child(4) > span',
         headerSolution1: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open div:nth-child(1) > div > a',
         headerSolution2: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open div:nth-child(2) > div > a',
         headerSolution3: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open div:nth-child(3) > div > a',
