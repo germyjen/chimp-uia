@@ -22,8 +22,8 @@ module.exports = {
             headerSecondary6: '.c-header-dropdown-item.c-header-nav-menu__item.p-dropdown__item.p--open li:nth-child(6) > a',
     headerSearch: '.c-header__button-wrapper .c-header__search-button',
     headerSearchInput: '#header-search',
-    headerSearchClose: '.c-header-modal__close',
-    headerSearchResults:'.c-search-modal__results',
+    headerSearchClose: '.c-modal__close',
+    headerSearchResults:'.c-modal-search__results',
     headerSearchResultsName: '.c-list-preview__list-item-name',
     headerSearchResultsArrow: '.c-list-preview__list-item-icon-end > svg',
     logInHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/login"]',
@@ -45,7 +45,7 @@ module.exports = {
         accountNavLogout: '.c-header-account-nav__content-area li:nth-child(4) > a',
     headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
-    headerProfileBtn: '.header-wrapper .c-header__button-wrapper > div.p-dropdown button',
+    headerProfileBtn: '.c-header-account-dropdown__trigger-avatar',
 
     //Global Footer
     preFooter: '.c-prefooter',
