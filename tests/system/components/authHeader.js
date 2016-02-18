@@ -106,14 +106,14 @@ module.exports = {
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(1) > a', "href", "contact")
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > a', "href", "help")
         .end();
-    }
+    },
 
     'Verify Account Nav can Be toggeled Open and closed': function(browser) {
         browser
         .click(selectors.headerProfileBtn)
         .waitForAnimation()
         .verify.elementsVisible(
-            selectors.headerAccountNav,
+            selectors.headerAccountNav
         )
         .click(selectors.headerProfileBtn)
         .verify.hidden(selectors.headerAccountNav)
@@ -137,5 +137,5 @@ module.exports = {
         .click(selectors.headerAccountSwitcherCancelButton)
         .verify.elementsVisible(selectors.headerAccountNav)
         .end();
-    },
+    }
 }
