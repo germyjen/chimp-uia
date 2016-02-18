@@ -18,7 +18,8 @@ module.exports = {
             selectors.headerSolutions,
             selectors.headerAbout,
             selectors.headerSupport,
-            selectors.headerSearch)
+            selectors.headerSearch,
+            selectors.logInHeaderButton)
         .end();
     },
 
