@@ -5,7 +5,7 @@ var selectors = require('../../../tests/system/pageobjects/globalSelectors');
 
 module.exports = {
 
-       'setUp': function(browser) {
+    'setUp': function(browser) {
         browser
         .url('https://local.chimp.net:3000/login')
         .waitForElementVisible(selectors.logInSubmit)
@@ -38,6 +38,7 @@ module.exports = {
             '.c-header-modal__content.c--active')
         .click('.c-header-modal__close')
         .waitForAnimation()
+
         .verify.elementsVisible(
             selectors.header,
             selectors.headerLogo,
@@ -106,4 +107,35 @@ module.exports = {
         .assert.attributeContains('section > div > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > a', "href", "help")
         .end();
     }
+
+    'Verify Account Nav can Be toggeled Open and closed': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(
+            selectors.headerAccountNav,
+        )
+        .click(selectors.headerProfileBtn)
+        .verify.hidden(selectors.headerAccountNav)
+        .end();
+    },
+
+    'Verify Account Nav switch to account switcher and back': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(
+            selectors.headerAccountNav,
+            selectors.headerAccountNavSwitchAccountButton,
+            selectors.headerAccountNavGreeting,
+            selectors.headerAccountNavBalanceSummary,
+            selectors.headerAccountNavSettingsLinks
+        )
+        .click(selectors.headerAccountNavSwitchAccountButton)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.headerAccountSwitcher)
+        .click(selectors.headerAccountSwitcherCancelButton)
+        .verify.elementsVisible(selectors.headerAccountNav)
+        .end();
+    },
 }
