@@ -4,7 +4,7 @@
   "custom_commands_path": "./nightwatch-commands/commands",
   "custom_assertions_path": "./nightwatch-commands/assertions",
   "page_objects_path" : "",
-  "globals_path" : "",
+  "globals_path" : "./globals.js",
 
   "selenium" : {
     "start_process" : true,
@@ -23,6 +23,25 @@
                 "waitForConditionTimeout" : 60000
             },
       "launch_url" : "https://local.chimp.net:3000/",
+      "selenium_port"  : 4442,
+      "selenium_host"  : "localhost",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : false,
+        "path" : ""
+      },
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
+
+    "styleguide" : {
+      "globals" : {
+                "waitForConditionTimeout" : 60000
+            },
+      "launch_url" : "http://localhost:8123/styleguide/components",
       "selenium_port"  : 4442,
       "selenium_host"  : "localhost",
       "silent": true,
