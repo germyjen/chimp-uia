@@ -108,6 +108,7 @@ module.exports = {
         .waitForAnimation()
         .setValue(selectors.headerSearchInput, 'Red Cross')
         .waitForAnimation()
+        .pause(2000)
         .verify.elementsVisible(
             selectors.headerSearchClose,
             selectors.headerSearch,

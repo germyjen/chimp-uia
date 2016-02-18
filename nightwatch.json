@@ -1,8 +1,8 @@
 {
   "src_folders" : ["tests"],
   "output_folder" : "reports",
-  "custom_commands_path": "./node_modules/nightwatch-commands/commands",
-  "custom_assertions_path": "./node_modules/nightwatch-commands/assertions",
+  "custom_commands_path": "./nightwatch-commands/commands",
+  "custom_assertions_path": "./nightwatch-commands/assertions",
   "page_objects_path" : "",
   "globals_path" : "",
 
@@ -13,7 +13,7 @@
     "host" : "127.0.0.1",
     "port" : 4442,
     "cli_args": {
-          "webdriver.chrome.driver": "./node_modules/nightwatch-commands/selenium/drivers/chromedriver"
+          "webdriver.chrome.driver": "./nightwatch-commands/selenium/drivers/chromedriver"
         }
   },
 
