@@ -5,26 +5,22 @@ module.exports = {
 
     'setUp': function(browser) {
         browser
-        .url('http://www.chimp.net/users/new')
-        .waitForElementVisible(selectors.oldHeader)
+        .url(browser.launch_url + 'users/new')
+        .waitForElementVisible(selectors.headerLogo);
     },
 
     'Verify sign up page elements present': function(browser) {
     	browser
         .verify.elementsPresent(
-        	selectors.oldHeaderLogin,
-            selectors.oldHeaderSignup,
-            selectors.signUpFirstName,
-            selectors.signUpLastName,
-            selectors.signUpEmail,
-            selectors.signUpPassword,
-            selectors.signUpCountry,
-            selectors.sighUpAgreement,
-            selectors.signUpTerms,
-            selectors.signUpPrivacy,
-            selectors.signUpSubmit,
-            selectors.subFooter)
+            selectors.header,
+            selectors.headerLogo,
+            selectors.headerFeatures,
+            selectors.headerSolutions,
+            selectors.headerAbout,
+            selectors.headerSupport,
+            selectors.headerSearch)
         .end();
+
     },
 
     'Verify error is thrown for in-use email': function(browser) {
@@ -36,6 +32,7 @@ module.exports = {
         .click(selectors.signUpSubmit)
         .pause(3000)
         .verify.elementPresent(selectors.signUpEmailError)
+        .assert.containsText(selectors.signUpEmailError, '- has already been taken')
         .end();
     },
 
@@ -48,6 +45,7 @@ module.exports = {
         .click(selectors.signUpSubmit)
         .pause(3000)
         .verify.elementPresent(selectors.signUpPasswordError)
+        .assert.containsText(selectors.signUpPasswordError, '- Please provide a password that is at least 8 characters')
         .end();
     }
 };

@@ -7,6 +7,8 @@ This repo contains a suite of front-end UI tests written for chimp.net using Nig
 
 ##To Run the Tests:
 
+The minimum required java version for Selenium is 7.0.
+
 The tests are organized into folders under `tests/system/` and can be run individually, in groups, or as a full suite.
 
 To run the full suite, use `node nightwatch`.
