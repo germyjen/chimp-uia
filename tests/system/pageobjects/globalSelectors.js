@@ -30,21 +30,27 @@ module.exports = {
 
     //Authenticated Header
     //Account Nav
+    headerProfileBtn: '.c-header-account-dropdown__trigger-avatar',
     accountNav: '.c-header-account-dropdown__trigger-avatar',
         accountNavBody: '.c-header-account-nav',
-    accountNavGreeting: '.c-header-account-nav__greeting',
-    accountNavBalance: '.c-user-balance-summary',
-        accountNavAmount: '.c-user-balance-summary__amount',
-    accountNavAddMoney: '.c-user-balance-summary .c-button[href="/donations/new"]',
-    accountNavSettings: '.c-header-account-nav__content-area > div.pure-u-3-8 > h3',
-        accountNavSettingsContent: '.c-header-account-nav__content-area',
-        accountNavAccSettingsLink: '.c-header-account-nav__content-area li:nth-child(1) > a',
-        accountNavTaxReceipts: '.c-header-account-nav__content-area li:nth-child(2) > a',
-        accountNavGivingTools: '.c-header-account-nav__content-area li:nth-child(3) > a',
-        accountNavLogout: '.c-header-account-nav__content-area li:nth-child(4) > a',
+            accountNavGreeting: '.c-header-account-nav__greeting',
+            headerAccountNavSwitchAccountButton: '.c-header-account-nav .c-header-account-nav__switch-account-button',
+            accountNavBalance: '.c-user-balance-summary',
+                accountNavAmount: '.c-user-balance-summary__amount',
+                accountNavAddMoney: '.c-user-balance-summary .c-button[href="/donations/new"]',
+            accountNavSettings: '.c-header-account-nav__content-area > div.pure-u-3-8 > h3',
+                accountNavSettingsContent: '.c-header-account-nav__content-area',
+                accountNavAccSettingsLink: '.c-header-account-nav__content-area li:nth-child(1) > a',
+                accountNavTaxReceipts: '.c-header-account-nav__content-area li:nth-child(2) > a',
+                accountNavGivingTools: '.c-header-account-nav__content-area li:nth-child(3) > a',
+                accountNavLogout: '.c-header-account-nav__content-area li:nth-child(4) > a',
+    
+    // Account Switcher
+    headerAccountSwitcher: '.c-header-account-switcher',
+    headerAccountSwitcherCancelButton: '.c-header-account-switcher .c-button',
+
     headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
-    headerProfileBtn: '.c-header-account-dropdown__trigger-avatar',
 
  
     //Give Menu

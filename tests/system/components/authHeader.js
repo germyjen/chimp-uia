@@ -5,7 +5,7 @@ var selectors = require('../../../tests/system/pageobjects/globalSelectors');
 
 module.exports = {
 
-       'setUp': function(browser) {
+    'setUp': function(browser) {
         browser
         //login to Chimp
         .url(browser.launch_url + 'login')
@@ -39,6 +39,7 @@ module.exports = {
             '.c-modal__content.c--active')
         .click('.c-modal__close')
         .waitForAnimation()
+
         .verify.elementsVisible(
             selectors.header,
             selectors.headerLogo,
@@ -174,6 +175,7 @@ module.exports = {
         .waitForAnimation()
         .verify.elementsVisible(selectors.accountNavBody)
         .click(selectors.headerProfileBtn)
+        .verify.hidden(selectors.accountNavBody)
         .end();
     },
 
@@ -206,6 +208,17 @@ module.exports = {
         .assert.containsText(selectors.accountNavLogout, 'Logout')
         .assert.attributeContains(selectors.accountNavLogout, "href", "/logout")
         .end();
+    },
+
+    'Verify Account Nav switch to account switcher and back': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .click(selectors.headerAccountNavSwitchAccountButton)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.headerAccountSwitcher)
+        .click(selectors.headerAccountSwitcherCancelButton)
+        .verify.elementsVisible(selectors.accountNavBody)
+        .end();
     }
-    
 }
