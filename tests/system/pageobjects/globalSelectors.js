@@ -44,7 +44,16 @@ module.exports = {
         accountNavLogout: '.c-header-account-nav__content-area li:nth-child(4) > a',
     headerAuthSearch: 'div.c-header__nav-wrapper > div > button',
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
-    headerProfileBtn: '.c-header-account-dropdown__trigger-avatar',
+    headerProfileBtn: '.c-header-account-dropdown__trigger.p-dropdown__item-trigger > div',
+     headerAccountNav: '.c-header-account-nav',
+     headerAccountNavSwitchAccountButton: '.c-header-account-nav .c-header-account-nav__switch-account-button',
+     headerAccountNavGreeting: '.c-header-account-nav .c-header-account-nav__greeting',
+     headerAccountNavBalanceSummary: '.c-header-account-nav .c-user-balance-summary',
+     headerAccountNavSettingsLinks: '.c-header-account-nav .c-header-account-nav__content-area .c-link-list',
+ 
+     // Account Switcher
+     headerAccountSwitcher: '.c-header-account-switcher',
+     headerAccountSwitcherCancelButton: '.c-header-account-switcher .c-button',
 
  
     //Give Menu

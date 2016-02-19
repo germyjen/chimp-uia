@@ -103,40 +103,40 @@ module.exports = {
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
-        .assert.attributeContains('section > div > div > div > div > div:nth-child(4) li:nth-child(1) > a', "href", "contact")
-        .assert.attributeContains('section > div > div > div > div > div:nth-child(4) li:nth-child(2) > a', "href", "help")
+        .verify.attributeContains('section > div > div > div > div > div:nth-child(4) li:nth-child(1) > a', "href", "contact")
+        .verify.attributeContains('section > div > div > div > div > div:nth-child(4) li:nth-child(2) > a', "href", "help")
         .end();
     },
 
     // === Give Menu Tests Start
 
-    'Verify that Give Menu has all the components': function(browser) {
-        browser
-        .click(selectors.headerGiveMenuBtn)
-        .waitForAnimation()
-        .verify.elementsVisible(
-            '.c-header-give-dropdown__content')
-        .assert.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
+    // 'Verify that Give Menu has all the components': function(browser) {
+    //     browser
+    //     .click(selectors.headerGiveMenuBtn)
+    //     .waitForAnimation()
+    //     .verify.elementsVisible(
+    //         '.c-header-give-dropdown__content')
+    //     .verify.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
 
-        .assert.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
-        .assert.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
-        .assert.containsText(selectors.headerGiveMenuAddButton, "Add")
+    //     .verify.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
+    //     .verify.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
+    //     .verify.containsText(selectors.headerGiveMenuAddButton, "Add")
 
-        .assert.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
-        .assert.containsText(selectors.headerGiveMenuGiveButton, 'Give')
-        .assert.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
+    //     .verify.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
+    //     .verify.containsText(selectors.headerGiveMenuGiveButton, 'Give')
+    //     .verify.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
 
-        .assert.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
-        .assert.containsText(selectors.headerGiveMenuSendButton, 'Send')
-        .assert.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
-        .end();
-    },
+    //     .verify.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
+    //     .verify.containsText(selectors.headerGiveMenuSendButton, 'Send')
+    //     .verify.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
+    //     .end();
+    // },
 
-       'Verify that Whats This? links in Give Menu work': function(browser) {
-        browser
-        .click(selectors.headerGiveMenuBtn)
-        .waitForAnimation()
-        .verify.elementsVisible('.c-header-give-dropdown__content')
+    //    'Verify that Whats This? links in Give Menu work': function(browser) {
+    //     browser
+    //     .click(selectors.headerGiveMenuBtn)
+    //     .waitForAnimation()
+    //     .verify.elementsVisible('.c-header-give-dropdown__content')
 
     //     // Whats This? in Add Section
     //     .click(selectors.headerGiveMenuAddDropDownHeading)
@@ -144,16 +144,16 @@ module.exports = {
     //     .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
     //     .click(selectors.headerGiveMenuAddDropDownHeading)
     //     .waitForAnimation()
-    //     .assert.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
+    //     .verify.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
        
     //      // Whats This? in Give Section
     //     .click(selectors.headerGiveMenuGiveDropDownHeading)
     //     .waitForAnimation()
     //     .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
-    //     .assert.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
+    //     .verify.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
     //     .click(selectors.headerGiveMenuGiveDropDownHeading)
     //     .waitForAnimation()
-    //     .assert.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
+    //     .verify.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
 
 
     //      // Whats This? In Send Section
@@ -162,12 +162,12 @@ module.exports = {
     //     .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
     //     .click(selectors.headerGiveMenuSendDropDownHeading)
     //     .waitForAnimation()
-    //     .assert.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
+    //     .verify.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
     //     .end();
 
     // },
 
-    // //  === Give Meny Tests Finish
+    //  === Give Menu Tests Finish
     
     'Verify Account Menu can toggle open and closed': function(browser) {
         browser
@@ -197,16 +197,35 @@ module.exports = {
         .click(selectors.headerProfileBtn)
         .waitForAnimation()
         .verify.elementsVisible(selectors.accountNavBody)
-        .assert.containsText(selectors.accountNavSettings, 'Settings')
-        .assert.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
-        .assert.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
-        .assert.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
-        .assert.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
-        .assert.containsText(selectors.accountNavGivingTools, 'Giving Tools')
-        .assert.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
-        .assert.containsText(selectors.accountNavLogout, 'Logout')
-        .assert.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .verify.containsText(selectors.accountNavSettings, 'Settings')
+        .verify.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
+        .verify.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .verify.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
+        .verify.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .verify.containsText(selectors.accountNavGivingTools, 'Giving Tools')
+        .verify.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .verify.containsText(selectors.accountNavLogout, 'Logout')
+        .verify.attributeContains(selectors.accountNavLogout, "href", "/logout")
         .end();
-    }
+    },
+
+    'Verify Account Nav switch to account switcher and back': function(browser) {
+         browser
+         .click(selectors.headerProfileBtn)
+         .waitForAnimation()
+         .verify.elementsVisible(
+             selectors.headerAccountNav,
+             selectors.headerAccountNavSwitchAccountButton,
+             selectors.headerAccountNavGreeting,
+             selectors.headerAccountNavBalanceSummary,
+             selectors.headerAccountNavSettingsLinks
+         )
+         .click(selectors.headerAccountNavSwitchAccountButton)
+         .waitForAnimation()
+         .verify.elementsVisible(selectors.headerAccountSwitcher)
+        .click(selectors.headerAccountSwitcherCancelButton)
+         .verify.elementsVisible(selectors.headerAccountNav)
+         .end();
+     }
     
 }
