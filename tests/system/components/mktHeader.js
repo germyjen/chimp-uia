@@ -1,4 +1,4 @@
-var selectors = require('../../../tests/system/pageobjects/globalSelectors');
+//var browser.globals.selectors.= require('../../../tests/system/pageobjects/globalSelectors');
 //These tests are for the outside the wall or marketing pages
 //when they contain the signed-out header.
 //Authenticated header tests live at authHeader.js
@@ -8,131 +8,131 @@ module.exports = {
     'setUp': function(browser) {
         browser
         .url(browser.launch_url)
-        .waitForElementVisible(selectors.headerLogo)
+        .waitForElementVisible(browser.globals.selectors.headerLogo)
     },
 
     'Verify header elements present': function(browser) {
     	browser
     	.verify.elementsPresent(
-    		selectors.header,
-            selectors.headerLogo,
-            selectors.headerFeatures,
-            selectors.headerSolutions,
-            selectors.headerAbout,
-            selectors.headerSupport,
-            selectors.headerSearch,
-            selectors.logInHeaderButton,
-            selectors.signUpHeaderButton)
+    		browser.globals.selectors.header,
+            browser.globals.selectors.headerLogo,
+            browser.globals.selectors.headerFeatures,
+            browser.globals.selectors.headerSolutions,
+            browser.globals.selectors.headerAbout,
+            browser.globals.selectors.headerSupport,
+            browser.globals.selectors.headerSearch,
+            browser.globals.selectors.logInHeaderButton,
+            browser.globals.selectors.signUpHeaderButton)
         .end();
     },
 
     'Verify header top level navigation': function(browser) {
         browser
-        .assert.containsText(selectors.headerFeatures, 'Features')
-        .assert.containsText(selectors.headerSolutions, 'Solutions')
-        .assert.containsText(selectors.headerAbout, 'About')
-        .assert.containsText(selectors.headerSupport, 'Support')
-        .triggerTouch(selectors.headerFeatures)
+        .assert.containsText(browser.globals.selectors.headerFeatures, 'Features')
+        .assert.containsText(browser.globals.selectors.headerSolutions, 'Solutions')
+        .assert.containsText(browser.globals.selectors.headerAbout, 'About')
+        .assert.containsText(browser.globals.selectors.headerSupport, 'Support')
+        .triggerTouch(browser.globals.selectors.headerFeatures)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.headerFeaturesOpen)
+        .verify.elementsVisible(browser.globals.selectors.headerFeaturesOpen)
         .end();
     },
 
 
     'Verify features secondary navigation': function(browser) {
         browser
-        .triggerTouch(selectors.headerFeatures)
+        .triggerTouch(browser.globals.selectors.headerFeatures)
         .waitForAnimation()
-    	.assert.attributeContains(selectors.headerSecondary1, "href", "/fundraising")
-        .assert.attributeContains(selectors.headerSecondary2, "href", "/ways-to-give")
-        .assert.attributeContains(selectors.headerSecondary3, "href", "/community")
-        .assert.attributeContains(selectors.headerSecondary4, "href", "/accounts")
-        .assert.attributeContains(selectors.headerSecondary5, "href", "/fees")
-        .assert.attributeContains(selectors.headerSecondary6, "href", "/trust")
+    	.assert.attributeContains(browser.globals.selectors.headerSecondary1, "href", "/fundraising")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary2, "href", "/ways-to-give")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary3, "href", "/community")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary4, "href", "/accounts")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary5, "href", "/fees")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary6, "href", "/trust")
         .end();
     },
 
     'Verify solutions secondary navigation': function(browser) {
         browser
-        .triggerTouch(selectors.headerSolutions)
+        .triggerTouch(browser.globals.selectors.headerSolutions)
         .waitForAnimation()
-        .assert.attributeContains(selectors.headerSolution1, "href", "/individuals")
-        .assert.attributeContains(selectors.headerSolution2, "href", "/workplace")
-        .assert.attributeContains(selectors.headerSolution3, "href", "/giving-groups")
-        .assert.attributeContains(selectors.headerSolution4, "href", "/charities")
-        .assert.attributeContains(selectors.headerSecondary1, "href", "/philanthropists")
-        .assert.attributeContains(selectors.headerSecondary2, "href", "/education")
-        .assert.attributeContains(selectors.headerSecondary3, "href", "/sports")
-        .assert.attributeContains(selectors.headerSecondary4, "href", "/funding-organizations")
-        .assert.attributeContains(selectors.headerSecondary5, "href", "/events")
-        .assert.attributeContains(selectors.headerSecondary6, "href", "/families")
+        .assert.attributeContains(browser.globals.selectors.headerSolution1, "href", "/individuals")
+        .assert.attributeContains(browser.globals.selectors.headerSolution2, "href", "/workplace")
+        .assert.attributeContains(browser.globals.selectors.headerSolution3, "href", "/giving-groups")
+        .assert.attributeContains(browser.globals.selectors.headerSolution4, "href", "/charities")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary1, "href", "/philanthropists")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary2, "href", "/education")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary3, "href", "/sports")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary4, "href", "/funding-organizations")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary5, "href", "/events")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary6, "href", "/families")
         .end();
     },
 
     'Verify about secondary navigation': function(browser) {
         browser
-        .triggerTouch(selectors.headerAbout)
+        .triggerTouch(browser.globals.selectors.headerAbout)
         .waitForAnimation()
-        .assert.attributeContains(selectors.headerSecondary1, "href", "/about")
-        .assert.attributeContains(selectors.headerSecondary2, "href", "/our-story")
-        .assert.attributeContains(selectors.headerSecondary3, "href", "/chimp-foundation")
-        .assert.attributeContains(selectors.headerSecondary4, "href", "/team")
-        .assert.attributeContains(selectors.headerSecondary5, "href", "/careers")
-        .assert.attributeContains(selectors.headerSecondary6, "href", "/press")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary1, "href", "/about")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary2, "href", "/our-story")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary3, "href", "/chimp-foundation")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary4, "href", "/team")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary5, "href", "/careers")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary6, "href", "/press")
         .end();
     },
 
     'Verify support secondary navigation': function(browser) {
         browser
-        .triggerTouch(selectors.headerSupport)
+        .triggerTouch(browser.globals.selectors.headerSupport)
         .waitForAnimation()
-        .assert.attributeContains(selectors.headerSecondary1, "href", "contact")
-        .assert.attributeContains(selectors.headerSecondary2, "href", "help")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary1, "href", "contact")
+        .assert.attributeContains(browser.globals.selectors.headerSecondary2, "href", "help")
         .end();
     },
 
     'Verify Search opens on click': function(browser) {
         browser
-        .triggerTouch(selectors.headerSearch)
+        .triggerTouch(browser.globals.selectors.headerSearch)
         .waitForAnimation()
         .verify.elementsVisible(
-            selectors.headerSearchInput,
-            selectors.headerSearchClose,
-            selectors.headerSearch)
+            browser.globals.selectors.headerSearchInput,
+            browser.globals.selectors.headerSearchClose,
+            browser.globals.selectors.headerSearch)
         .end();
     },
 
     'Verify auto-complete activates when text is entered': function(browser) {
         browser
-        .triggerTouch(selectors.headerSearch)
+        .triggerTouch(browser.globals.selectors.headerSearch)
         .waitForAnimation()
-        .setValue(selectors.headerSearchInput, 'Red Cross')
+        .setValue(browser.globals.selectors.headerSearchInput, 'Red Cross')
         .waitForAnimation()
         .pause(2000)
         .verify.elementsVisible(
-            selectors.headerSearchClose,
-            selectors.headerSearch,
-            selectors.headerSearchResults)
+            browser.globals.selectors.headerSearchClose,
+            browser.globals.selectors.headerSearch,
+            browser.globals.selectors.headerSearchResults)
         .verify.elementsPresent(
-            selectors.headerSearchResultsName,
-            selectors.headerSearchResultsArrow)
+            browser.globals.selectors.headerSearchResultsName,
+            browser.globals.selectors.headerSearchResultsArrow)
         .end();
     },
 
     'Verify Search can be dismissed by close button': function(browser) {
         browser
-        .triggerTouch(selectors.headerSearch)
+        .triggerTouch(browser.globals.selectors.headerSearch)
         .waitForAnimation()
         .verify.elementsVisible(
-            selectors.headerSearchInput)
-        .triggerTouch(selectors.headerSearchClose)
+            browser.globals.selectors.headerSearchInput)
+        .triggerTouch(browser.globals.selectors.headerSearchClose)
         .end();
     },
 
     'Verify login button navigates to Log In page': function(browser) {
         browser
-        .assert.attributeContains(selectors.logInHeaderButton, "href", "login")
-        .triggerTouch(selectors.logInHeaderButton)
+        .assert.attributeContains(browser.globals.selectors.logInHeaderButton, "href", "login")
+        .triggerTouch(browser.globals.selectors.logInHeaderButton)
         .waitForElementVisible('.login_form')
         .assert.urlEquals(browser.launch_url + 'login')
         .end();
@@ -140,8 +140,8 @@ module.exports = {
 
         'Verify sign up button navigates to sign up page': function(browser) {
         browser
-        .assert.attributeContains(selectors.signUpHeaderButton, "href", "new")
-        .triggerTouch(selectors.signUpHeaderButton)
+        .assert.attributeContains(browser.globals.selectors.signUpHeaderButton, "href", "new")
+        .triggerTouch(browser.globals.selectors.signUpHeaderButton)
         .waitForElementVisible('.new_user')
         .assert.urlEquals(browser.launch_url + 'users/new')
         .end();

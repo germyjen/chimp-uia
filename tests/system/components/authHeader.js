@@ -1,37 +1,40 @@
-var selectors = require('../../../tests/system/pageobjects/globalSelectors');
+//var browser.globals.selectors = require('../../../tests/system/pageobjects/globalSelectors');
 //These tests are for the inside the wall or logged in pages
 //when they contain the authenticated header.
 //Signed out header tests live at mktHeader.js
-        console.log(browser.globals.selectors);         
 
 module.exports = {
 
     'setUp': function(browser) {
-        browser
-        //login to Chimp
-        .url(browser.launch_url + 'login')
-        .waitForElementVisible(selectors.logInSubmit)
-        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
-        .setValue(selectors.logInPassword, 'Qwerty1234!')
-        .pause(1000)
-        .click(selectors.logInSubmit)
-        .waitForElementVisible(selectors.headerMegaBtn);
+        if (browser.globals.environment === 'styleguide'){
+            browser.url(browser.launch_url);
+        }else {
+            //login to Chimp
+            browser
+            .url(browser.launch_url + 'login')
+            .waitForElementVisible(browser.globals.selectors.logInSubmit)
+            .setValue(browser.globals.selectors.logInUsername, 'chimpautomation+tests@gmail.com')
+            .setValue(browser.globals.selectors.logInPassword, 'Qwerty1234!')
+            .pause(1000)
+            .click(browser.globals.selectors.logInSubmit)
+            .waitForElementVisible(browser.globals.selectors.headerMegaBtn);
+        }
     },
 
     'Verify auth header elements present': function(browser) {
     	browser
     	.verify.elementsPresent(
-    		selectors.header,
-            selectors.headerLogo,
-            selectors.headerAuthSearch,
-            selectors.headerMegaBtn,
-            selectors.headerProfileBtn)
+    		browser.globals.selectors.header,
+            browser.globals.selectors.headerLogo,
+            browser.globals.selectors.headerAuthSearch,
+            browser.globals.selectors.headerMegaBtn,
+            browser.globals.selectors.headerProfileBtn)
         .end();
     },
 
     'Verify Mega Nav can be toggled open and closed': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(browser.globals.selectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header',
@@ -42,17 +45,17 @@ module.exports = {
         .waitForAnimation()
 
         .verify.elementsVisible(
-            selectors.header,
-            selectors.headerLogo,
-            selectors.headerAuthSearch,
-            selectors.headerMegaBtn,
-            selectors.headerProfileBtn)
+            browser.globals.selectors.header,
+            browser.globals.selectors.headerLogo,
+            browser.globals.selectors.headerAuthSearch,
+            browser.globals.selectors.headerMegaBtn,
+            browser.globals.selectors.headerProfileBtn)
         .end();
     },
 
     'Verify features links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(browser.globals.selectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -67,7 +70,7 @@ module.exports = {
 
     'Verify solutions links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(browser.globals.selectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -86,7 +89,7 @@ module.exports = {
 
     'Verify about links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(browser.globals.selectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -101,7 +104,7 @@ module.exports = {
 
     'Verify support links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(browser.globals.selectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -114,57 +117,57 @@ module.exports = {
 
     'Verify that Give Menu has all the components': function(browser) {
         browser
-        .click(selectors.headerGiveMenuBtn)
+        .click(browser.globals.selectors.headerGiveMenuBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-header-give-dropdown__content')
-        .assert.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
+        .assert.containsText(browser.globals.selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
 
-        .assert.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
-        .assert.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
-        .assert.containsText(selectors.headerGiveMenuAddButton, "Add")
+        .assert.containsText(browser.globals.selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
+        .assert.attributeContains(browser.globals.selectors.headerGiveMenuAddButton, "href", "/donations/new")
+        .assert.containsText(browser.globals.selectors.headerGiveMenuAddButton, "Add")
 
-        .assert.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
-        .assert.containsText(selectors.headerGiveMenuGiveButton, 'Give')
-        .assert.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
+        .assert.containsText(browser.globals.selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
+        .assert.containsText(browser.globals.selectors.headerGiveMenuGiveButton, 'Give')
+        .assert.attributeContains(browser.globals.selectors.headerGiveMenuGiveButton, "href", "/give")
 
-        .assert.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
-        .assert.containsText(selectors.headerGiveMenuSendButton, 'Send')
-        .assert.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
+        .assert.containsText(browser.globals.selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
+        .assert.containsText(browser.globals.selectors.headerGiveMenuSendButton, 'Send')
+        .assert.attributeContains(browser.globals.selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
         .end();
     },
 
        'Verify that Whats This? links in Give Menu work': function(browser) {
         browser
-        .click(selectors.headerGiveMenuBtn)
+        .click(browser.globals.selectors.headerGiveMenuBtn)
         .waitForAnimation()
         .verify.elementsVisible('.c-header-give-dropdown__content')
 
         // Whats This? in Add Section
-        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .click(browser.globals.selectors.headerGiveMenuAddDropDownHeading)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
-        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .verify.elementsVisible(browser.globals.selectors.headerGiveMenuAddDropDownText)
+        .click(browser.globals.selectors.headerGiveMenuAddDropDownHeading)
         .waitForAnimation()
-        .assert.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
+        .assert.elementNotPresent(browser.globals.selectors.headerGiveMenuAddDropDownText)
        
          // Whats This? in Give Section
-        .click(selectors.headerGiveMenuGiveDropDownHeading)
+        .click(browser.globals.selectors.headerGiveMenuGiveDropDownHeading)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
-        .assert.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
-        .click(selectors.headerGiveMenuGiveDropDownHeading)
+        .verify.elementsVisible(browser.globals.selectors.headerGiveMenuGiveDropDownContent)
+        .assert.attributeContains(browser.globals.selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
+        .click(browser.globals.selectors.headerGiveMenuGiveDropDownHeading)
         .waitForAnimation()
-        .assert.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
+        .assert.elementNotPresent(browser.globals.selectors.headerGiveMenuGiveDropDownContent)
 
 
          // Whats This? In Send Section
-        .click(selectors.headerGiveMenuSendDropDownHeading)
+        .click(browser.globals.selectors.headerGiveMenuSendDropDownHeading)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
-        .click(selectors.headerGiveMenuSendDropDownHeading)
+        .verify.elementsVisible(browser.globals.selectors.headerGiveMenuSendDropDownContent)
+        .click(browser.globals.selectors.headerGiveMenuSendDropDownHeading)
         .waitForAnimation()
-        .assert.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
+        .assert.elementNotPresent(browser.globals.selectors.headerGiveMenuSendDropDownContent)
         .end();
 
     },
@@ -172,54 +175,54 @@ module.exports = {
     //  === Give Meny Tests Finish
     'Verify Account Menu can toggle open and closed': function(browser) {
         browser
-        .click(selectors.headerProfileBtn)
+        .click(browser.globals.selectors.headerProfileBtn)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .click(selectors.headerProfileBtn)
-        .verify.hidden(selectors.accountNavBody)
+        .verify.elementsVisible(browser.globals.selectors.accountNavBody)
+        .click(browser.globals.selectors.headerProfileBtn)
+        .verify.hidden(browser.globals.selectors.accountNavBody)
         .end();
     },
 
     'Verify Account Menu contains expected elements': function(browser) {
         browser
-        .click(selectors.headerProfileBtn)
+        .click(browser.globals.selectors.headerProfileBtn)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(browser.globals.selectors.accountNavBody)
         .verify.elementsVisible(
-            selectors.accountNavGreeting,
-            selectors.accountNavBalance,
-            selectors.accountNavAmount,
-            selectors.accountNavAddMoney,
-            selectors.accountNavSettingsContent)
+            browser.globals.selectors.accountNavGreeting,
+            browser.globals.selectors.accountNavBalance,
+            browser.globals.selectors.accountNavAmount,
+            browser.globals.selectors.accountNavAddMoney,
+            browser.globals.selectors.accountNavSettingsContent)
         .end();
     },
 
     'Verify Account Menu Settings Menu navigation': function(browser) {
         browser
-        .click(selectors.headerProfileBtn)
+        .click(browser.globals.selectors.headerProfileBtn)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .assert.containsText(selectors.accountNavSettings, 'Settings')
-        .assert.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
-        .assert.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
-        .assert.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
-        .assert.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
-        .assert.containsText(selectors.accountNavGivingTools, 'Giving Tools')
-        .assert.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
-        .assert.containsText(selectors.accountNavLogout, 'Logout')
-        .assert.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .verify.elementsVisible(browser.globals.selectors.accountNavBody)
+        .assert.containsText(browser.globals.selectors.accountNavSettings, 'Settings')
+        .assert.containsText(browser.globals.selectors.accountNavAccSettingsLink, 'Account Settings')
+        .assert.attributeContains(browser.globals.selectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .assert.containsText(browser.globals.selectors.accountNavTaxReceipts, 'Tax Receipts')
+        .assert.attributeContains(browser.globals.selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .assert.containsText(browser.globals.selectors.accountNavGivingTools, 'Giving Tools')
+        .assert.attributeContains(browser.globals.selectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .assert.containsText(browser.globals.selectors.accountNavLogout, 'Logout')
+        .assert.attributeContains(browser.globals.selectors.accountNavLogout, "href", "/logout")
         .end();
     },
 
     'Verify Account Nav switch to account switcher and back': function(browser) {
         browser
-        .click(selectors.headerProfileBtn)
+        .click(browser.globals.selectors.headerProfileBtn)
         .waitForAnimation()
-        .click(selectors.headerAccountNavSwitchAccountButton)
+        .click(browser.globals.selectors.headerAccountNavSwitchAccountButton)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.headerAccountSwitcher)
-        .click(selectors.headerAccountSwitcherCancelButton)
-        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(browser.globals.selectors.headerAccountSwitcher)
+        .click(browser.globals.selectors.headerAccountSwitcherCancelButton)
+        .verify.elementsVisible(browser.globals.selectors.accountNavBody)
         .end();
     }
 }

@@ -1,6 +1,6 @@
 module.exports = {
     //Global Header
-    header: {styleGuideScope: '#header1', selector: '.c-header'},
+    header: selector: '.c-header',
     headerLogo: '.c-header__logo',
 
     //Marketing Header

@@ -1,21 +1,14 @@
 var path = require('path');
 var self = module.exports = {
-    environment: undefined,
-	selectors: require(path.resolve(__dirname, 'tests/system/pageobjects/globalSelectors.js')),
+	environment: '',
+	selectors: {},
     before: function (done) {
-       // parseArgumentsAndGetEnv is function you need to implement on your own to find your env param
-        //console.log(process.env);
-
-        self.environment = {}
-        for (e in process.env) self.environment[e] = process.env[e];
-        //console.log("Run against: " + self.environment);
     	var testEnvironment = getArg('env', process.argv);
+    	this.environment = testEnvironment;
     	
-    	if (testEnvironment === 'styleguide'){
-    		self.selectors = prefixSelectors(self.selectors);
-    		console.log(self.selectors.headerLogo);
-    	}
-        //done();
+    	var selectors = require(path.resolve(__dirname, 'tests/system/pageobjects/globalStyleguideSelectors.js'));
+    	this.selectors = applyStyleGuideScope(selectors, testEnvironment);
+        done();
     }
 };
 
@@ -30,16 +23,27 @@ function getArg(arg, args) {
 	return (argString === '') ? null : argString ;
 }
 
-function prefixSelectors(selectors) {
+function applyStyleGuideScope(selectors, testEnvironment) {
 	var selectorArr = Object.keys(selectors);
 	var returnObject = {};
+
 	for (var i = 0; i < selectorArr.length; i++) {
 		var key = selectorArr[i];
 		var selector = selectors[key];
-		if(typeof selector.styleGuideScope != 'undefined' && typeof selector.selector != 'undefined'){
-			returnObject[key] = selector.styleGuideScope + ' ' + selector.selector; 
+		if(testEnvironment === 'styleguide') {
+			// Prepend the styleguide scope to all the global selectors
+			if( typeof selector.styleGuideScope != 'undefined' && typeof selector.selector != 'undefined'){
+				returnObject[key] = selector.styleGuideScope + ' ' + selector.selector; 
+			} else {
+				returnObject[key] = selector;
+			}
 		} else {
-			returnObject[key] = selector;
+			// All other environments ignore the styleguide scope
+			if( typeof selector.styleGuideScope != 'undefined' && typeof selector.selector != 'undefined'){
+				returnObject[key] = selector.selector; 
+			} else {
+				returnObject[key] = selector;
+			}
 		}
 	}
 	return returnObject;
