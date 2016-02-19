@@ -70,13 +70,6 @@ module.exports = {
     headerGiveMenuSendDropDownHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--send > div.c-give-cta__description > div > div > span.c-collapsable-item__title.c-give-cta__expand-heading',
     headerGiveMenuSendDropDownContent: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--send > div.c-give-cta__description > div > div:nth-child(2) > div > div > div > p',
 
-    //Old header
-    oldHeader: '.site-header',
-    oldHeaderLogin: '#header-dropdown-btn',
-    oldHeaderSignup: '#sign-up-btn',
-    accountNav: '.p-account-nav',
-    accountNavLogout: '#logout-link',
-
     //Global Footer
     preFooter: '.c-prefooter',
     footer: '.c-footer',

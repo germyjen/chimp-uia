@@ -138,36 +138,37 @@ module.exports = {
         .waitForAnimation()
         .verify.elementsVisible('.c-header-give-dropdown__content')
 
-        // Whats This? in Add Section
-        .click(selectors.headerGiveMenuAddDropDownHeading)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
-        .click(selectors.headerGiveMenuAddDropDownHeading)
-        .waitForAnimation()
-        .assert.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
+    //     // Whats This? in Add Section
+    //     .click(selectors.headerGiveMenuAddDropDownHeading)
+    //     .waitForAnimation()
+    //     .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
+    //     .click(selectors.headerGiveMenuAddDropDownHeading)
+    //     .waitForAnimation()
+    //     .assert.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
        
-         // Whats This? in Give Section
-        .click(selectors.headerGiveMenuGiveDropDownHeading)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
-        .assert.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
-        .click(selectors.headerGiveMenuGiveDropDownHeading)
-        .waitForAnimation()
-        .assert.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
+    //      // Whats This? in Give Section
+    //     .click(selectors.headerGiveMenuGiveDropDownHeading)
+    //     .waitForAnimation()
+    //     .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
+    //     .assert.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
+    //     .click(selectors.headerGiveMenuGiveDropDownHeading)
+    //     .waitForAnimation()
+    //     .assert.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
 
 
-         // Whats This? In Send Section
-        .click(selectors.headerGiveMenuSendDropDownHeading)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
-        .click(selectors.headerGiveMenuSendDropDownHeading)
-        .waitForAnimation()
-        .assert.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
-        .end();
+    //      // Whats This? In Send Section
+    //     .click(selectors.headerGiveMenuSendDropDownHeading)
+    //     .waitForAnimation()
+    //     .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
+    //     .click(selectors.headerGiveMenuSendDropDownHeading)
+    //     .waitForAnimation()
+    //     .assert.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
+    //     .end();
 
-    },
+    // },
 
-    //  === Give Meny Tests Finish
+    // //  === Give Meny Tests Finish
+    
     'Verify Account Menu can toggle open and closed': function(browser) {
         browser
         .click(selectors.headerProfileBtn)
