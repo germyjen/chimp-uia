@@ -108,7 +108,49 @@ module.exports = {
         .end();
     },
 
-    === Give Menu Tests Start
+        'Verify Account Menu can toggle open and closed': function(browser) {
+        browser
+        .pause(100)
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .end();
+    },
+
+    'Verify Account Menu contains expected elements': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(
+            selectors.accountNavGreeting,
+            selectors.accountNavBalance,
+            selectors.accountNavAmount,
+            selectors.accountNavAddMoney,
+            selectors.accountNavSettingsContent)
+        .end();
+    },
+
+    'Verify Account Menu navigation': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.containsText(selectors.accountNavSettings, 'Settings')
+        .verify.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
+        .verify.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .verify.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
+        .verify.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .verify.containsText(selectors.accountNavGivingTools, 'Giving Tools')
+        .verify.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .verify.containsText(selectors.accountNavLogout, 'Logout')
+        .verify.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .end();
+    },
+
+    // //=== Give Menu Tests Start
 
     'Verify that Give Menu has all the components': function(browser) {
         browser
@@ -145,67 +187,6 @@ module.exports = {
         .click(selectors.headerGiveMenuAddDropDownHeading)
         .waitForAnimation()
         .verify.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
-       
-         // Whats This? in Give Section
-        .click(selectors.headerGiveMenuGiveDropDownHeading)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
-        .verify.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
-        .click(selectors.headerGiveMenuGiveDropDownHeading)
-        .waitForAnimation()
-        .verify.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
-
-
-         // Whats This? In Send Section
-        .click(selectors.headerGiveMenuSendDropDownHeading)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
-        .click(selectors.headerGiveMenuSendDropDownHeading)
-        .waitForAnimation()
-        .verify.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
-        .end();
-
-    },
-
-     === Give Menu Tests Finish
-    
-    'Verify Account Menu can toggle open and closed': function(browser) {
-        browser
-        .click(selectors.headerProfileBtn)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .click(selectors.headerProfileBtn)
-        .end();
-    },
-
-    'Verify Account Menu contains expected elements': function(browser) {
-        browser
-        .click(selectors.headerProfileBtn)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .verify.elementsVisible(
-            selectors.accountNavGreeting,
-            selectors.accountNavBalance,
-            selectors.accountNavAmount,
-            selectors.accountNavAddMoney,
-            selectors.accountNavSettingsContent)
-        .end();
-    },
-
-    'Verify Account Menu Settings Menu navigation': function(browser) {
-        browser
-        .click(selectors.headerProfileBtn)
-        .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .verify.containsText(selectors.accountNavSettings, 'Settings')
-        .verify.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
-        .verify.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
-        .verify.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
-        .verify.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
-        .verify.containsText(selectors.accountNavGivingTools, 'Giving Tools')
-        .verify.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
-        .verify.containsText(selectors.accountNavLogout, 'Logout')
-        .verify.attributeContains(selectors.accountNavLogout, "href", "/logout")
         .end();
     },
 
