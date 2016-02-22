@@ -28,6 +28,14 @@ module.exports = {
     logInHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/login"]',
     signUpHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/users/new"]',
 
+    // Generic Modal Selectors
+    modal: '.c-modal',
+    modalTitle: '.c-modal__title',
+    modalCloseButton: '.c-modal__close',
+    modalContent: '.c-modal__content',
+
+
+
     //Authenticated Header
     //Account Nav
     accountNav: '.c-header-account-dropdown__trigger-avatar',
@@ -50,7 +58,11 @@ module.exports = {
      headerAccountNavGreeting: '.c-header-account-nav .c-header-account-nav__greeting',
      headerAccountNavBalanceSummary: '.c-header-account-nav .c-user-balance-summary',
      headerAccountNavSettingsLinks: '.c-header-account-nav .c-header-account-nav__content-area .c-link-list',
- 
+     // Account Groups
+     headerAccountNavGroupsList: '.c-header-account-nav .c-header-account-nav__group-list',
+     headerAccountNavGroupsViewAllBtn: '.c-header-account-nav .c-header-account-nav__group-list .c-button',
+     viewAllGroupsModalListItems: '.c-modal .c-link-list li',
+
      // Account Switcher
      headerAccountSwitcher: '.c-header-account-switcher',
      headerAccountSwitcherCancelButton: '.c-header-account-switcher .c-button',
