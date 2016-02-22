@@ -237,7 +237,7 @@ module.exports = {
         .click(selectors.headerAccountSwitcherCancelButton)
          .verify.elementsVisible(selectors.headerAccountNav)
          .end();
-     }
+     },
 
     'Verify Clicking the groups view all in the account nav opens a modal': function(browser) {
          browser
