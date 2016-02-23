@@ -1,4 +1,6 @@
-var selectors = require('../../../tests/system/pageobjects/globalSelectors');
+var gSelectors = require('../../../tests/system/pageobjects/globalSelectors');
+var authSelectors = require('../../../tests/system/pageobjects/authSelectors');
+var dashSelectors = require('../../../tests/system/pageobjects/dashSelectors');
 
 
 module.exports = {
@@ -7,59 +9,59 @@ module.exports = {
     'setUp': function(browser) {
         browser
         .url(browser.launch_url + 'login')
-        .waitForElementVisible(selectors.logInSubmit)
-        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
-        .setValue(selectors.logInPassword, 'Qwerty1234!')
+        .waitForElementVisible(authSelectors.logInSubmit)
+        .setValue(authSelectors.logInUsername, 'chimpautomation+tests@gmail.com')
+        .setValue(authSelectors.logInPassword, 'Qwerty1234!')
         .pause(1000)
-        .click(selectors.logInSubmit)
-        .waitForElementVisible(selectors.accountNav);
+        .click(authSelectors.logInSubmit)
+        .waitForElementVisible(gSelectors.accountNav);
     },
 
     'Verify Account Settings sidebar navigation is present': function(browser) {
         browser
         .url(browser.launch_url + 'user/edit')
-        .waitForElementVisible(selectors.accountContent)
+        .waitForElementVisible(dashSelectors.accountContent)
         .verify.elementsPresent(
-            selectors.photoContentWrapper,
-            selectors.photoUploadArea)
+            dashSelectors.photoContentWrapper,
+            dashSelectors.photoUploadArea)
         .end();
     },
 
     'Verify Account Basics module elements are present': function(browser) {
         browser
         .url(browser.launch_url + 'user/edit')
-        .waitForElementVisible(selectors.accountContent)
+        .waitForElementVisible(dashSelectors.accountContent)
         .verify.elementsPresent(
-            selectors.photoContentWrapper,
-            selectors.photoUploadArea)
+            dashSelectors.photoContentWrapper,
+            dashSelectors.photoUploadArea)
         .end();
     },
 
     'Verify Donor Photo module elements are present': function(browser) {
     	browser
         .url(browser.launch_url + 'user/edit')
-    	.waitForElementVisible(selectors.accountContent)
+    	.waitForElementVisible(dashSelectors.accountContent)
         .verify.elementsPresent(
-        	selectors.photoContentWrapper,
-        	selectors.photoUploadArea,
-            selectors.photoTitle,
-            selectors.photoUploadedImg,
-            selectors.photoTextBlurb,
-            selectors.photoUploadButton)
+        	dashSelectors.photoContentWrapper,
+        	dashSelectors.photoUploadArea,
+            dashSelectors.photoTitle,
+            dashSelectors.photoUploadedImg,
+            dashSelectors.photoTextBlurb,
+            dashSelectors.photoUploadButton)
         .end();
     },
 
     'Verify Change Password module elements are present': function(browser) {
         browser
         .url(browser.launch_url + 'user/edit')
-        .waitForElementVisible(selectors.accountContent)
+        .waitForElementVisible(dashSelectors.accountContent)
         .verify.elementsPresent(
-            selectors.photoContentWrapper,
-            selectors.photoUploadArea,
-            selectors.photoTitle,
-            selectors.photoUploadedImg,
-            selectors.photoTextBlurb,
-            selectors.photoUploadButton)
+            dashSelectors.photoContentWrapper,
+            dashSelectors.photoUploadArea,
+            dashSelectors.photoTitle,
+            dashSelectors.photoUploadedImg,
+            dashSelectors.photoTextBlurb,
+            dashSelectors.photoUploadButton)
         .end();
     }
 }
