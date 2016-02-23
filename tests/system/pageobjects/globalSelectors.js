@@ -88,30 +88,6 @@ module.exports = {
     postFooter: '.c-postfooter',
     subFooter: '.sub-footer',
 
-    //Log In page specifc
-    logInSubmit: '#login_form > button',
-    logInUsername: 'input[type="text"]',
-    logInPassword: 'input[type="password"]',
-    logInForgot: '#login_form > a',
-    logInSidebar: '.sidebar',
-    logInSidebarBtn: '.sidebar > div > div > div > button',
-    logInError: '.error',
-    logInErrorMsg: '.flash-msg-body',
-    logInErrorClose: '#feed > div > div.flash-container.alert.error > div:nth-child(3) > a',
-
-    //Sign Up Page specific
-    signUpFirstName: '#user_first_name',
-    signUpLastName: '#user_last_name',
-    signUpEmail: '#user_email',
-    signUpEmailError: '#new_user > div.form-wrapper > div.form-row.form-alert.error > div',
-    signUpPassword: '#user_password',
-    signUpPasswordError: 'div.form-row:nth-child(4) > div:nth-child(3)',
-    signUpCountry: '#country',
-    sighUpAgreement: '#new_user > p > a:nth-child(1)',
-    signUpTerms: '#new_user > p > a:nth-child(3)',
-    signUpPrivacy: '#new_user > p > a:nth-child(4)',
-    signUpSubmit: '#new_user > button',
-
     //Account Page
     accountContent: '.tools-page',
 

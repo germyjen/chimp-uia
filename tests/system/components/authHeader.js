@@ -1,4 +1,5 @@
 var gSelectors = require('../../../tests/system/pageobjects/globalSelectors');
+var authSelectors = require('../../../tests/system/pageobjects/authSelectors');
 //These tests are for the inside the wall or logged in pages
 //when they contain the authenticated header.
 //Signed out header tests live at mktHeader.js
@@ -20,12 +21,12 @@ module.exports = {
         browser
         //login to Chimp
         .url(browser.launch_url + 'login')
-        .waitForElementVisible(gSelectors.logInSubmit)
-        .setValue(gSelectors.logInUsername, 'chimpautomation+tests@gmail.com')
-        .setValue(gSelectors.logInPassword, 'Qwerty1234!')
+        .waitForElementVisible(authSelectors.logInSubmit)
+        .setValue(authSelectors.logInUsername, 'chimpautomation+tests@gmail.com')
+        .setValue(authSelectors.logInPassword, 'Qwerty1234!')
         .pause(1000)
-        .click(gSelectors.logInSubmit)
-        .waitForElementVisible(gSelectors.headerMegaBtn);
+        .click(authSelectors.logInSubmit)
+        .waitForElementVisible(authSelectors.headerMegaBtn);
     },
 
     'Verify auth header elements present': function(browser) {
