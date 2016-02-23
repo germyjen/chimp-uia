@@ -3,9 +3,20 @@ var selectors = require('../../../tests/system/pageobjects/globalSelectors');
 //when they contain the authenticated header.
 //Signed out header tests live at mktHeader.js
 
+// Creates a group with a random name for the currently authed user.
+function createGroup(browser) {
+    var groupName = 'testGroup:' + Math.random().toPrecision(4);
+    var description = 'this description is always the same';
+    browser.url(browser.launch_url + 'groups/step/one')
+        .setValue('#group_name', groupName)
+        .setValue('#group_short', description)
+        .click('#new_group button[type="submit"]');
+
+}
+
 module.exports = {
 
-       'setUp': function(browser) {
+    'setUp': function(browser) {
         browser
         //login to Chimp
         .url(browser.launch_url + 'login')
@@ -108,73 +119,14 @@ module.exports = {
         .end();
     },
 
-    // === Give Menu Tests Start
-
-    // 'Verify that Give Menu has all the components': function(browser) {
-    //     browser
-    //     .click(selectors.headerGiveMenuBtn)
-    //     .waitForAnimation()
-    //     .verify.elementsVisible(
-    //         '.c-header-give-dropdown__content')
-    //     .verify.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
-
-    //     .verify.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
-    //     .verify.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
-    //     .verify.containsText(selectors.headerGiveMenuAddButton, "Add")
-
-    //     .verify.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
-    //     .verify.containsText(selectors.headerGiveMenuGiveButton, 'Give')
-    //     .verify.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
-
-    //     .verify.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
-    //     .verify.containsText(selectors.headerGiveMenuSendButton, 'Send')
-    //     .verify.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
-    //     .end();
-    // },
-
-    //    'Verify that Whats This? links in Give Menu work': function(browser) {
-    //     browser
-    //     .click(selectors.headerGiveMenuBtn)
-    //     .waitForAnimation()
-    //     .verify.elementsVisible('.c-header-give-dropdown__content')
-
-    //     // Whats This? in Add Section
-    //     .click(selectors.headerGiveMenuAddDropDownHeading)
-    //     .waitForAnimation()
-    //     .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
-    //     .click(selectors.headerGiveMenuAddDropDownHeading)
-    //     .waitForAnimation()
-    //     .verify.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
-       
-    //      // Whats This? in Give Section
-    //     .click(selectors.headerGiveMenuGiveDropDownHeading)
-    //     .waitForAnimation()
-    //     .verify.elementsVisible(selectors.headerGiveMenuGiveDropDownContent)
-    //     .verify.attributeContains(selectors.headerGiveMenuGiveDropDownContentButton,'href','/groups/new')
-    //     .click(selectors.headerGiveMenuGiveDropDownHeading)
-    //     .waitForAnimation()
-    //     .verify.elementNotPresent(selectors.headerGiveMenuGiveDropDownContent)
-
-
-    //      // Whats This? In Send Section
-    //     .click(selectors.headerGiveMenuSendDropDownHeading)
-    //     .waitForAnimation()
-    //     .verify.elementsVisible(selectors.headerGiveMenuSendDropDownContent)
-    //     .click(selectors.headerGiveMenuSendDropDownHeading)
-    //     .waitForAnimation()
-    //     .verify.elementNotPresent(selectors.headerGiveMenuSendDropDownContent)
-    //     .end();
-
-    // },
-
-    //  === Give Menu Tests Finish
-    
-    'Verify Account Menu can toggle open and closed': function(browser) {
+        'Verify Account Menu can toggle open and closed': function(browser) {
         browser
+        .pause(100)
         .click(selectors.headerProfileBtn)
         .waitForAnimation()
         .verify.elementsVisible(selectors.accountNavBody)
         .click(selectors.headerProfileBtn)
+        .waitForAnimation()
         .end();
     },
 
@@ -192,7 +144,7 @@ module.exports = {
         .end();
     },
 
-    'Verify Account Menu Settings Menu navigation': function(browser) {
+    'Verify Account Menu navigation': function(browser) {
         browser
         .click(selectors.headerProfileBtn)
         .waitForAnimation()
@@ -206,6 +158,46 @@ module.exports = {
         .verify.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
         .verify.containsText(selectors.accountNavLogout, 'Logout')
         .verify.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .end();
+    },
+
+    // //=== Give Menu Tests Start
+
+    'Verify that Give Menu has all the components': function(browser) {
+        browser
+        .click(selectors.headerGiveMenuBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(
+            '.c-header-give-dropdown__content')
+        .verify.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
+
+        .verify.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
+        .verify.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
+        .verify.containsText(selectors.headerGiveMenuAddButton, "Add")
+
+        .verify.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
+        .verify.containsText(selectors.headerGiveMenuGiveButton, 'Give')
+        .verify.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
+
+        .verify.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
+        .verify.containsText(selectors.headerGiveMenuSendButton, 'Send')
+        .verify.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
+        .end();
+    },
+
+       'Verify that Whats This? links in Give Menu work': function(browser) {
+        browser
+        .click(selectors.headerGiveMenuBtn)
+        .waitForAnimation()
+        .verify.elementsVisible('.c-header-give-dropdown__content')
+
+        // Whats This? in Add Section
+        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
+        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .waitForAnimation()
+        .verify.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
         .end();
     },
 
@@ -226,6 +218,30 @@ module.exports = {
         .click(selectors.headerAccountSwitcherCancelButton)
          .verify.elementsVisible(selectors.headerAccountNav)
          .end();
+     },
+
+    'Verify Clicking the groups view all in the account nav opens a modal': function(browser) {
+         browser
+         .click(selectors.headerProfileBtn)
+         .waitForAnimation()
+         .verify.elementsVisible(
+             selectors.headerAccountNavGroupsList,
+             selectors.headerAccountNavGroupsViewAllBtn
+         )
+         .click(selectors.headerAccountNavGroupsViewAllBtn)
+         .waitForAnimation()
+         .verify.elementsVisible(selectors.modal)
+         
+         // Asserts that there's more than the cut off limit for the see more button in the modal
+         browser.execute(function(selectors){
+              return document.querySelectorAll(selectors.viewAllGroupsModalListItems).length;
+            }, [selectors], function(result){
+                var listContainsElements = (result.value > 5);
+                browser.assert.equal(listContainsElements, true);
+            });
+          
+
+         browser.end();
      }
     
 }
