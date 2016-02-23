@@ -28,6 +28,14 @@ module.exports = {
     logInHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/login"]',
     signUpHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/users/new"]',
 
+    // Generic Modal Selectors
+    modal: '.c-modal',
+    modalTitle: '.c-modal__title',
+    modalCloseButton: '.c-modal__close',
+    modalContent: '.c-modal__content',
+
+
+
     //Authenticated Header
     //Account Nav
     accountNav: '.c-header-account-dropdown__trigger-avatar',
@@ -50,14 +58,18 @@ module.exports = {
      headerAccountNavGreeting: '.c-header-account-nav .c-header-account-nav__greeting',
      headerAccountNavBalanceSummary: '.c-header-account-nav .c-user-balance-summary',
      headerAccountNavSettingsLinks: '.c-header-account-nav .c-header-account-nav__content-area .c-link-list',
- 
+     // Account Groups
+     headerAccountNavGroupsList: '.c-header-account-nav .c-header-account-nav__group-list',
+     headerAccountNavGroupsViewAllBtn: '.c-header-account-nav .c-header-account-nav__group-list .c-button',
+     viewAllGroupsModalListItems: '.c-modal .c-link-list li',
+
      // Account Switcher
      headerAccountSwitcher: '.c-header-account-switcher',
      headerAccountSwitcherCancelButton: '.c-header-account-switcher .c-button',
 
  
     //Give Menu
-    headerGiveMenuBtn: 'div.c-header-give-dropdown > div.p-dropdown__item-trigger > button',
+    headerGiveMenuBtn: '.c-header-give-dropdown > div.p-dropdown__item-trigger > button',
     headerGiveMenuFirstHeading: 'h2.c-header-give-contents__heading',
     headerGiveMenuGiveHeading: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__description > h3',
     headerGiveMenuGiveButton: '.c-header__button-wrapper > div:nth-child(2) > div > div.c-header-dropdown-item__contents.c-header-give-dropdown__content.p-dropdown__item-contents.p--open.p--right.p--sm > div > div.c-give-cta.c--give > div.c-give-cta__action > a',
