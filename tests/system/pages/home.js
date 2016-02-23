@@ -1,4 +1,5 @@
-var selectors = require('../../../tests/system/pageobjects/globalSelectors');
+var gSelectors = require('../../../tests/system/pageobjects/globalSelectors');
+var homeSelectors = require('../../../tests/system/pageobjects/homeSelectors');
 
 
 module.exports = {
@@ -6,38 +7,38 @@ module.exports = {
     'setUp': function(browser) {
         browser
         .init(browser.launch_url)
-        .waitForElementVisible(selectors.logInHeaderButton)
+        .waitForElementVisible(gSelectors.logInHeaderButton)
     },
 
     'Verify page elements present': function(browser) {
     	browser
     	.verify.elementsPresent(
     		//global
-    		selectors.header,
-    		selectors.preFooter,
-    		selectors.footer,
-    		selectors.postFooter,
+    		gSelectors.header,
+    		gSelectors.preFooter,
+    		gSelectors.footer,
+    		gSelectors.postFooter,
     		//home hero
-    		selectors.heroVideo,
-    		selectors.heroTitle,
-    		selectors.heroSubtitle,
-    		selectors.btnStart,
-    		selectors.btnDiscover,
+    		homeSelectors.heroVideo,
+    		homeSelectors.heroTitle,
+    		homeSelectors.heroSubtitle,
+    		homeSelectors.btnStart,
+    		homeSelectors.btnDiscover,
     		//home content
-    		selectors.contentTitle,
-    		selectors.contentSubtitle,
-    		selectors.blockGrid,
-    		selectors.blockGridTitle,
-    		selectors.blockGridSubtitle,
+    		homeSelectors.contentTitle,
+    		homeSelectors.contentSubtitle,
+    		homeSelectors.blockGrid,
+    		homeSelectors.blockGridTitle,
+    		homeSelectors.blockGridSubtitle,
     		// selectors.blockGridBtn,
-    		selectors.highlights,
-    		selectors.highlightsTitle,
-    		selectors.highlightsBody,
-    		selectors.highlightsBtn,
-    		selectors.mkSearch,
+    		homeSelectors.highlights,
+    		homeSelectors.highlightsTitle,
+    		homeSelectors.highlightsBody,
+    		homeSelectors.highlightsBtn,
+    		homeSelectors.mkSearch,
     		//banner CTA
-    		selectors.ctaBanner,
-    		selectors.ctaBannerBtn
+    		homeSelectors.ctaBanner,
+    		homeSelectors.ctaBannerBtn
     		)
     	.end();
     }
