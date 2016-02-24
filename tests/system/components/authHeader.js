@@ -18,6 +18,8 @@ function createGroup(browser) {
 module.exports = {
 
     'setUp': function(browser) {
+        gselc = browser.globals.newSelectors;
+        console.log(gselc);
         browser
         //login to Chimp
         .url(browser.launch_url + 'login')
@@ -30,6 +32,7 @@ module.exports = {
     },
 
     'Verify auth header elements present': function(browser) {
+        console.log(gselc);
     	browser
     	.verify.elementsPresent(
     		gSelectors.header,
