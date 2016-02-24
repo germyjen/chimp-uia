@@ -4,14 +4,14 @@
   "custom_commands_path": "./nightwatch-commands/commands",
   "custom_assertions_path": "./nightwatch-commands/assertions",
   "page_objects_path" : "",
-  "globals_path" : "",
+  "globals_path" : "globals.js",
 
   "selenium" : {
     "start_process" : true,
     "server_path" : "./bin/selenium-server-standalone-2.48.2.jar",
     "log_path" : "",
     "host" : "127.0.0.1",
-    "port" : 4442,
+    "port" : 4448,
     "cli_args": {
           "webdriver.chrome.driver": "./nightwatch-commands/selenium/drivers/chromedriver"
         }
@@ -23,7 +23,7 @@
                 "waitForConditionTimeout" : 60000
             },
       "launch_url" : "https://local.chimp.net:3000/",
-      "selenium_port"  : 4442,
+      "selenium_port"  : 4448,
       "selenium_host"  : "localhost",
       "silent": true,
       "screenshots" : {

@@ -1,4 +1,5 @@
-var selectors = require('../../../tests/system/pageobjects/globalSelectors');
+var gSelectors = require('../../../tests/system/pageobjects/globalSelectors');
+var authSelectors = require('../../../tests/system/pageobjects/authSelectors');
 //These tests are for the inside the wall or logged in pages
 //when they contain the authenticated header.
 //Signed out header tests live at mktHeader.js
@@ -17,31 +18,34 @@ function createGroup(browser) {
 module.exports = {
 
     'setUp': function(browser) {
+        gselc = browser.globals.newSelectors;
+        console.log(gselc);
         browser
         //login to Chimp
         .url(browser.launch_url + 'login')
-        .waitForElementVisible(selectors.logInSubmit)
-        .setValue(selectors.logInUsername, 'chimpautomation+tests@gmail.com')
-        .setValue(selectors.logInPassword, 'Qwerty1234!')
+        .waitForElementVisible(authSelectors.logInSubmit)
+        .setValue(authSelectors.logInUsername, 'chimpautomation+tests@gmail.com')
+        .setValue(authSelectors.logInPassword, 'Qwerty1234!')
         .pause(1000)
-        .click(selectors.logInSubmit)
-        .waitForElementVisible(selectors.headerMegaBtn);
+        .click(authSelectors.logInSubmit)
+        .waitForElementVisible(authSelectors.headerMegaBtn);
     },
 
     'Verify auth header elements present': function(browser) {
+        console.log(gselc);
     	browser
     	.verify.elementsPresent(
-    		selectors.header,
-            selectors.headerLogo,
-            selectors.headerAuthSearch,
-            selectors.headerMegaBtn,
-            selectors.headerProfileBtn)
+    		gSelectors.header,
+            gSelectors.headerLogo,
+            gSelectors.headerAuthSearch,
+            gSelectors.headerMegaBtn,
+            gSelectors.headerProfileBtn)
         .end();
     },
 
     'Verify Mega Nav can be toggled open and closed': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(gSelectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header',
@@ -51,17 +55,17 @@ module.exports = {
         .click('.c-modal__close')
         .waitForAnimation()
         .verify.elementsVisible(
-            selectors.header,
-            selectors.headerLogo,
-            selectors.headerAuthSearch,
-            selectors.headerMegaBtn,
-            selectors.headerProfileBtn)
+            gSelectors.header,
+            gSelectors.headerLogo,
+            gSelectors.headerAuthSearch,
+            gSelectors.headerMegaBtn,
+            gSelectors.headerProfileBtn)
         .end();
     },
 
     'Verify features links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(gSelectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -76,7 +80,7 @@ module.exports = {
 
     'Verify solutions links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(gSelectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -95,7 +99,7 @@ module.exports = {
 
     'Verify about links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(gSelectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -110,7 +114,7 @@ module.exports = {
 
     'Verify support links in Mega Nav': function(browser) {
         browser
-        .click(selectors.headerMegaBtn)
+        .click(gSelectors.headerMegaBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-modal__header')
@@ -122,42 +126,42 @@ module.exports = {
         'Verify Account Menu can toggle open and closed': function(browser) {
         browser
         .pause(100)
-        .click(selectors.headerProfileBtn)
+        .click(gSelectors.headerProfileBtn)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .click(selectors.headerProfileBtn)
+        .verify.elementsVisible(gSelectors.accountNavBody)
+        .click(gSelectors.headerProfileBtn)
         .waitForAnimation()
         .end();
     },
 
     'Verify Account Menu contains expected elements': function(browser) {
         browser
-        .click(selectors.headerProfileBtn)
+        .click(gSelectors.headerProfileBtn)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(gSelectors.accountNavBody)
         .verify.elementsVisible(
-            selectors.accountNavGreeting,
-            selectors.accountNavBalance,
-            selectors.accountNavAmount,
-            selectors.accountNavAddMoney,
-            selectors.accountNavSettingsContent)
+            gSelectors.accountNavGreeting,
+            gSelectors.accountNavBalance,
+            gSelectors.accountNavAmount,
+            gSelectors.accountNavAddMoney,
+            gSelectors.accountNavSettingsContent)
         .end();
     },
 
     'Verify Account Menu navigation': function(browser) {
         browser
-        .click(selectors.headerProfileBtn)
+        .click(gSelectors.headerProfileBtn)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.accountNavBody)
-        .verify.containsText(selectors.accountNavSettings, 'Settings')
-        .verify.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
-        .verify.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
-        .verify.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
-        .verify.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
-        .verify.containsText(selectors.accountNavGivingTools, 'Giving Tools')
-        .verify.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
-        .verify.containsText(selectors.accountNavLogout, 'Logout')
-        .verify.attributeContains(selectors.accountNavLogout, "href", "/logout")
+        .verify.elementsVisible(gSelectors.accountNavBody)
+        .verify.containsText(gSelectors.accountNavSettings, 'Settings')
+        .verify.containsText(gSelectors.accountNavAccSettingsLink, 'Account Settings')
+        .verify.attributeContains(gSelectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .verify.containsText(gSelectors.accountNavTaxReceipts, 'Tax Receipts')
+        .verify.attributeContains(gSelectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .verify.containsText(gSelectors.accountNavGivingTools, 'Giving Tools')
+        .verify.attributeContains(gSelectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .verify.containsText(gSelectors.accountNavLogout, 'Logout')
+        .verify.attributeContains(gSelectors.accountNavLogout, "href", "/logout")
         .end();
     },
 
@@ -165,77 +169,77 @@ module.exports = {
 
     'Verify that Give Menu has all the components': function(browser) {
         browser
-        .click(selectors.headerGiveMenuBtn)
+        .click(gSelectors.headerGiveMenuBtn)
         .waitForAnimation()
         .verify.elementsVisible(
             '.c-header-give-dropdown__content')
-        .verify.containsText(selectors.headerGiveMenuFirstHeading, 'How would you like to give?')
+        .verify.containsText(gSelectors.headerGiveMenuFirstHeading, 'How would you like to give?')
 
-        .verify.containsText(selectors.headerGiveMenuAddHeading, 'Add Money to your Account')
-        .verify.attributeContains(selectors.headerGiveMenuAddButton, "href", "/donations/new")
-        .verify.containsText(selectors.headerGiveMenuAddButton, "Add")
+        .verify.containsText(gSelectors.headerGiveMenuAddHeading, 'Add Money to your Account')
+        .verify.attributeContains(gSelectors.headerGiveMenuAddButton, "href", "/donations/new")
+        .verify.containsText(gSelectors.headerGiveMenuAddButton, "Add")
 
-        .verify.containsText(selectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
-        .verify.containsText(selectors.headerGiveMenuGiveButton, 'Give')
-        .verify.attributeContains(selectors.headerGiveMenuGiveButton, "href", "/give")
+        .verify.containsText(gSelectors.headerGiveMenuGiveHeading, 'Give to a Charity or Giving Group')
+        .verify.containsText(gSelectors.headerGiveMenuGiveButton, 'Give')
+        .verify.attributeContains(gSelectors.headerGiveMenuGiveButton, "href", "/give")
 
-        .verify.containsText(selectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
-        .verify.containsText(selectors.headerGiveMenuSendButton, 'Send')
-        .verify.attributeContains(selectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
+        .verify.containsText(gSelectors.headerGiveMenuSendHeading, 'Send Charitable Dollars to Other People')
+        .verify.containsText(gSelectors.headerGiveMenuSendButton, 'Send')
+        .verify.attributeContains(gSelectors.headerGiveMenuSendButton, "href", "/give/to/friend/new")
         .end();
     },
 
        'Verify that Whats This? links in Give Menu work': function(browser) {
         browser
-        .click(selectors.headerGiveMenuBtn)
+        .click(gSelectors.headerGiveMenuBtn)
         .waitForAnimation()
         .verify.elementsVisible('.c-header-give-dropdown__content')
 
         // Whats This? in Add Section
-        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .click(gSelectors.headerGiveMenuAddDropDownHeading)
         .waitForAnimation()
-        .verify.elementsVisible(selectors.headerGiveMenuAddDropDownText)
-        .click(selectors.headerGiveMenuAddDropDownHeading)
+        .verify.elementsVisible(gSelectors.headerGiveMenuAddDropDownText)
+        .click(gSelectors.headerGiveMenuAddDropDownHeading)
         .waitForAnimation()
-        .verify.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
+        .verify.elementNotPresent(gSelectors.headerGiveMenuAddDropDownText)
         .end();
     },
 
-    'Verify Account Nav switch to account switcher and back': function(browser) {
-         browser
-         .click(selectors.headerProfileBtn)
-         .waitForAnimation()
-         .verify.elementsVisible(
-             selectors.headerAccountNav,
-             selectors.headerAccountNavSwitchAccountButton,
-             selectors.headerAccountNavGreeting,
-             selectors.headerAccountNavBalanceSummary,
-             selectors.headerAccountNavSettingsLinks
-         )
-         .click(selectors.headerAccountNavSwitchAccountButton)
-         .waitForAnimation()
-         .verify.elementsVisible(selectors.headerAccountSwitcher)
-        .click(selectors.headerAccountSwitcherCancelButton)
-         .verify.elementsVisible(selectors.headerAccountNav)
-         .end();
-     },
+    // 'Verify Account Nav switch to account switcher and back': function(browser) {
+    //      browser
+    //      .click(gSelectors.headerProfileBtn)
+    //      .waitForAnimation()
+    //      .verify.elementsVisible(
+    //          gSelectors.headerAccountNav,
+    //          gSelectors.headerAccountNavSwitchAccountButton,
+    //          gSelectors.headerAccountNavGreeting,
+    //          gSelectors.headerAccountNavBalanceSummary,
+    //          gSelectors.headerAccountNavSettingsLinks
+    //      )
+    //      .click(gSelectors.headerAccountNavSwitchAccountButton)
+    //      .waitForAnimation()
+    //      .verify.elementsVisible(gSelectors.headerAccountSwitcher)
+    //     .click(gSelectors.headerAccountSwitcherCancelButton)
+    //      .verify.elementsVisible(gSelectors.headerAccountNav)
+    //      .end();
+    //  },
 
     'Verify Clicking the groups view all in the account nav opens a modal': function(browser) {
          browser
-         .click(selectors.headerProfileBtn)
+         .click(gSelectors.headerProfileBtn)
          .waitForAnimation()
          .verify.elementsVisible(
-             selectors.headerAccountNavGroupsList,
-             selectors.headerAccountNavGroupsViewAllBtn
+             gSelectors.headerAccountNavGroupsList,
+             gSelectors.headerAccountNavGroupsViewAllBtn
          )
-         .click(selectors.headerAccountNavGroupsViewAllBtn)
+         .click(gSelectors.headerAccountNavGroupsViewAllBtn)
          .waitForAnimation()
-         .verify.elementsVisible(selectors.modal)
+         .verify.elementsVisible(gSelectors.modal)
          
          // Asserts that there's more than the cut off limit for the see more button in the modal
-         browser.execute(function(selectors){
-              return document.querySelectorAll(selectors.viewAllGroupsModalListItems).length;
-            }, [selectors], function(result){
+         browser.execute(function(gSelectors){
+              return document.querySelectorAll(gSelectors.viewAllGroupsModalListItems).length;
+            }, [gSelectors], function(result){
                 var listContainsElements = (result.value > 5);
                 browser.assert.equal(listContainsElements, true);
             });

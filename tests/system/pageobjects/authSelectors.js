@@ -3,12 +3,6 @@ module.exports = {
     header: '.c-header',
     headerLogo: '.c-header__logo',
 
-    // Generic Modal Selectors
-    modal: '.c-modal',
-    modalTitle: '.c-modal__title',
-    modalCloseButton: '.c-modal__close',
-    modalContent: '.c-modal__content',
-
     //Marketing Header
     headerFeatures: '.c-header__nav-wrapper li:nth-child(1) > span',
     headerFeaturesOpen: '.c-header-dropdown-item__contents.p-dropdown__item-contents.p--open',
@@ -34,6 +28,14 @@ module.exports = {
     logInHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/login"]',
     signUpHeaderButton: '.bonobo.header .c-header__button-wrapper > .c-button[href="/users/new"]',
 
+    // Generic Modal Selectors
+    modal: '.c-modal',
+    modalTitle: '.c-modal__title',
+    modalCloseButton: '.c-modal__close',
+    modalContent: '.c-modal__content',
+
+
+
     //Authenticated Header
     //Account Nav
     accountNav: '.c-header-account-dropdown__trigger-avatar',
@@ -52,16 +54,16 @@ module.exports = {
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
     headerProfileBtn: '.c-header-account-dropdown__trigger.p-dropdown__item-trigger > div',
      headerAccountNav: '.c-header-account-nav',
-     headerAccountNavSwitchAccountButton: '.c-header__button-wrapper > div:nth-child(3) .c-header-account-nav__header > button',
+     headerAccountNavSwitchAccountButton: '.c-header-account-nav .c-header-account-nav__switch-account-button',
      headerAccountNavGreeting: '.c-header-account-nav .c-header-account-nav__greeting',
      headerAccountNavBalanceSummary: '.c-header-account-nav .c-user-balance-summary',
      headerAccountNavSettingsLinks: '.c-header-account-nav .c-header-account-nav__content-area .c-link-list',
-    // Account Groups
+     // Account Groups
      headerAccountNavGroupsList: '.c-header-account-nav .c-header-account-nav__group-list',
      headerAccountNavGroupsViewAllBtn: '.c-header-account-nav .c-header-account-nav__group-list .c-button',
      viewAllGroupsModalListItems: '.c-modal .c-link-list li',
 
-    // Account Switcher
+     // Account Switcher
      headerAccountSwitcher: '.c-header-account-switcher',
      headerAccountSwitcherCancelButton: '.c-header-account-switcher .c-button',
 
@@ -85,6 +87,49 @@ module.exports = {
     footer: '.c-footer',
     postFooter: '.c-postfooter',
     subFooter: '.sub-footer',
+
+    //Log In page specifc
+    logInSubmit: '#login_form > button',
+    logInUsername: 'input[type="text"]',
+    logInPassword: 'input[type="password"]',
+    logInForgot: '#login_form > a',
+    logInSidebar: '.sidebar',
+    logInSidebarBtn: '.sidebar > div > div > div > button',
+    logInError: '.error',
+    logInErrorMsg: '.flash-msg-body',
+    logInErrorClose: '#feed > div > div.flash-container.alert.error > div:nth-child(3) > a',
+
+    //Sign Up Page specific
+    signUpFirstName: '#user_first_name',
+    signUpLastName: '#user_last_name',
+    signUpEmail: '#user_email',
+    signUpEmailError: '#new_user > div.form-wrapper > div.form-row.form-alert.error > div',
+    signUpPassword: '#user_password',
+    signUpPasswordError: 'div.form-row:nth-child(4) > div:nth-child(3)',
+    signUpCountry: '#country',
+    sighUpAgreement: '#new_user > p > a:nth-child(1)',
+    signUpTerms: '#new_user > p > a:nth-child(3)',
+    signUpPrivacy: '#new_user > p > a:nth-child(4)',
+    signUpSubmit: '#new_user > button',
+
+    //Account Page
+    accountContent: '.tools-page',
+
+    //Donor Photo specific
+    photoContentWrapper: '.tools-wrapper.settings-avatar.f-right',
+    photoUploadArea: '#upload-area',
+    photoTitle: '.tools-wrapper.settings-avatar.f-right > h2',
+    photoUploadedImg: '#uploaded-image',
+    photoTextBlurb: '.p-image-upload__text',
+    photoUploadButton: '#image-upload-button',
+    photoSelectButton: '#image-select-button',
+    photoCancelUpload: '#image-upload-cancel-button',
+    photoSliderContainer: '#slider-container',
+    photoResizeSlider: '#image-resize-slider',
+    photoHiddenUploadField: '#image-upload-field',
+    photoUploadOverlay: '#upload-overlay',
+    photoUploadProgress: '.p--loading-image',
+    photoUploadSuccess: '.p--upload-success',
 
 };
 
