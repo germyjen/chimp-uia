@@ -54,7 +54,7 @@ module.exports = {
     headerMegaBtn: 'div.c-header__button-wrapper > div.openByClickOn > button',
     headerProfileBtn: '.c-header-account-dropdown__trigger.p-dropdown__item-trigger > div',
      headerAccountNav: '.c-header-account-nav',
-     headerAccountNavSwitchAccountButton: '.c-header-account-nav .c-header-account-nav__switch-account-button',
+     headerAccountNavSwitchAccountButton: '.c-header__button-wrapper > div:nth-child(3) .c-header-account-nav__header > button',
      headerAccountNavGreeting: '.c-header-account-nav .c-header-account-nav__greeting',
      headerAccountNavBalanceSummary: '.c-header-account-nav .c-user-balance-summary',
      headerAccountNavSettingsLinks: '.c-header-account-nav .c-header-account-nav__content-area .c-link-list',
