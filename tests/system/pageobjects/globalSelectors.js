@@ -65,7 +65,12 @@ module.exports = {
 
      // Account Switcher
      headerAccountSwitcher: '.c-header-account-switcher',
+     headerAccountSwitcherHeading: '.c-header-account-switcher__header',
      headerAccountSwitcherCancelButton: '.c-header-account-switcher .c-button',
+     headerAccountSwitcherCurrentAccount: '.c-account-preview.c--current',
+     headerAccountSwitcherOtherAccountsList: '.c-account-preview-list',
+        headerAccountSwitcherMoreLink: '.c-account-preview-list__more',
+        viewAllAccountsListItems: '.c-modal .c-account-preview-list a',
 
  
     //Give Menu
