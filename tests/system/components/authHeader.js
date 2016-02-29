@@ -231,7 +231,7 @@ module.exports = {
          .click(selectors.headerAccountNavGroupsViewAllBtn)
          .waitForAnimation()
          .verify.elementsVisible(selectors.modal)
-         
+
          // Asserts that there's more than the cut off limit for the see more button in the modal
          browser.execute(function(selectors){
               return document.querySelectorAll(selectors.viewAllGroupsModalListItems).length;
@@ -239,9 +239,58 @@ module.exports = {
                 var listContainsElements = (result.value > 5);
                 browser.assert.equal(listContainsElements, true);
             });
-          
+
 
          browser.end();
-     }
-    
+     },
+
+    // Account Switch Menu
+    // ---
+
+    'Verify Account Switch menu has all the components': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .click(selectors.headerAccountNavSwitchAccountButton)
+        .waitForAnimation()
+        .verify.elementsVisible(
+            selectors.headerAccountSwitcher,
+            selectors.headerAccountSwitcherHeading,
+            selectors.headerAccountSwitcherCancelButton,
+            selectors.headerAccountSwitcherCurrentAccount,
+            '.c-account-preview__avatar',
+            '.c-account-preview__name',
+            '.c-account-preview__type',
+            selectors.headerAccountSwitcherOtherAccountsList,
+            selectors.headerAccountSwitcherMoreLink
+        )
+        .verify.containsText(selectors.headerAccountSwitcherHeading, 'Switch Accounts')
+        .verify.containsText(selectors.headerAccountSwitcherCancelButton, 'Cancel')
+        .verify.containsText(selectors.headerAccountSwitcherMoreLink, 'See more Accounts')
+        .end();
+    },
+
+    'Verify Clicking See more Accounts in the Account Switch Menu opens a modal': function(browser) {
+         browser
+         .click(selectors.headerProfileBtn)
+         .waitForAnimation()
+         .click(selectors.headerAccountNavSwitchAccountButton)
+         .waitForAnimation()
+         .verify.elementsVisible(
+             selectors.headerAccountSwitcher,
+             selectors.headerAccountSwitcherMoreLink
+         )
+         .click(selectors.headerAccountSwitcherMoreLink)
+         .waitForAnimation()
+         .verify.elementsVisible(selectors.modal)
+
+         // Asserts that there's more than the cut off limit for the see more button in the modal
+         browser.execute(function(selectors){
+              return document.querySelectorAll(selectors.viewAllAccountsListItems).length;
+            }, [selectors], function(result){
+                var listContainsElements = (result.value > 2);
+                browser.assert.equal(listContainsElements, true);
+            });
+         browser.end();
+     },
 }
