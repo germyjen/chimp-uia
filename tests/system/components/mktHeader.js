@@ -138,12 +138,23 @@ module.exports = {
         .end();
     },
 
-        'Verify sign up button navigates to sign up page': function(browser) {
+    'Verify sign up button navigates to sign up page': function(browser) {
         browser
         .assert.attributeContains(selectors.signUpHeaderButton, "href", "new")
         .triggerTouch(selectors.signUpHeaderButton)
         .waitForElementVisible('.new_user')
         .assert.urlEquals(browser.launch_url + 'users/new')
+        .end();
+    },
+
+    'Verify switching to french updates the header with french translations': function(browser) {
+        browser
+        .assert.attributeContains(selectors.logInHeaderButton, "href", "login")
+        .triggerTouch(selectors.logInHeaderButton)
+        .waitForElementVisible(selectors.langToggle)
+        .triggerTouch(selectors.langToggle)
+        .waitForElementVisible(selectors.logInHeaderButton)
+        .assert.containsText(selectors.logInHeaderButton, 'Connexion')
         .end();
     }
 }

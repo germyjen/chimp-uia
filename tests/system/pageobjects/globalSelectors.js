@@ -1,4 +1,7 @@
 module.exports = {
+    //Language Toggle
+    langToggle: '.lang-toggle',
+
     //Global Header
     header: '.c-header',
     headerLogo: '.c-header__logo',
