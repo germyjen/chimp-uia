@@ -185,7 +185,7 @@ module.exports = {
         .end();
     },
 
-       'Verify that Whats This? links in Give Menu work': function(browser) {
+    'Verify that Whats This? links in Give Menu work': function(browser) {
         browser
         .click(selectors.headerGiveMenuBtn)
         .waitForAnimation()
@@ -198,6 +198,46 @@ module.exports = {
         .click(selectors.headerGiveMenuAddDropDownHeading)
         .waitForAnimation()
         .verify.elementNotPresent(selectors.headerGiveMenuAddDropDownText)
+        .end();
+    },
+
+    'Verify Account Menu can toggle open and closed': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .click(selectors.headerProfileBtn)
+        .end();
+    },
+
+    'Verify Account Menu contains expected elements': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.elementsVisible(
+            selectors.accountNavGreeting,
+            selectors.accountNavBalance,
+            selectors.accountNavAmount,
+            selectors.accountNavAddMoney,
+            selectors.accountNavSettingsContent)
+        .end();
+    },
+
+    'Verify Account Menu Settings Menu navigation': function(browser) {
+        browser
+        .click(selectors.headerProfileBtn)
+        .waitForAnimation()
+        .verify.elementsVisible(selectors.accountNavBody)
+        .verify.containsText(selectors.accountNavSettings, 'Settings')
+        .verify.containsText(selectors.accountNavAccSettingsLink, 'Account Settings')
+        .verify.attributeContains(selectors.accountNavAccSettingsLink, "href", "/user/edit")
+        .verify.containsText(selectors.accountNavTaxReceipts, 'Tax Receipts')
+        .verify.attributeContains(selectors.accountNavTaxReceipts, "href", "/user/tax-receipts")
+        .verify.containsText(selectors.accountNavGivingTools, 'Giving Tools')
+        .verify.attributeContains(selectors.accountNavGivingTools, "href", "/user/giving-tools")
+        .verify.containsText(selectors.accountNavLogout, 'Logout')
+        .verify.attributeContains(selectors.accountNavLogout, "href", "/logout")
         .end();
     },
 
